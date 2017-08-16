@@ -26,6 +26,10 @@
  * Test configuration values for errors at compile-time.
  */
 
+#ifdef __INTELLISENSE__
+#define constexpr
+#endif
+
 /**
  * Require gcc 4.7 or newer (first included with Arduino 1.6.8) for C++11 features.
  */
@@ -1101,6 +1105,7 @@ static_assert(1 >= 0
  *       ELB_FULL_GRAPHIC_CONTROLLER => ULTIMAKERCONTROLLER
  *       PANEL_ONE => ULTIMAKERCONTROLLER
  */
+#ifndef __INTELLISENSE__
 static_assert(1 >= 0
   #if ENABLED(ULTIMAKERCONTROLLER) \
       && DISABLED(SAV_3DGLCD) && DISABLED(miniVIKI) && DISABLED(VIKI2) \
@@ -1184,6 +1189,7 @@ static_assert(1 >= 0
   #endif
   , "Please select no more than one LCD controller option."
 );
+#endif
 
 /**
  * Make sure HAVE_TMCDRIVER is warranted

@@ -115,13 +115,15 @@
 
 // Macros to support option testing
 #define _CAT(a, ...) a ## __VA_ARGS__
+// IntelliSense doesn't correctly process __VA_ARGS__ inside the concatenation macro
+#define _CAT2(a, b) a ## b
 #define SWITCH_ENABLED_false 0
 #define SWITCH_ENABLED_true  1
 #define SWITCH_ENABLED_0     0
 #define SWITCH_ENABLED_1     1
 #define SWITCH_ENABLED_      1
-#define ENABLED(b) _CAT(SWITCH_ENABLED_, b)
-#define DISABLED(b) (!_CAT(SWITCH_ENABLED_, b))
+#define ENABLED(b) _CAT2(SWITCH_ENABLED_, b)
+#define DISABLED(b) (!_CAT2(SWITCH_ENABLED_, b))
 
 #define WITHIN(V,L,H) ((V) >= (L) && (V) <= (H))
 #define NUMERIC(a) WITHIN(a, '0', '9')
