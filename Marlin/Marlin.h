@@ -22,6 +22,7 @@
 #ifndef MARLIN_H
 #define MARLIN_H
 
+#include <stdint.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

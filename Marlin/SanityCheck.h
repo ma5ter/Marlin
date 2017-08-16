@@ -26,14 +26,10 @@
     Test configuration values for errors at compile-time.
 */
 
-#ifdef __INTELLISENSE__
-	#define constexpr
-#endif
-
 /**
     Require gcc 4.7 or newer (first included with Arduino 1.6.8) for C++11 features.
 */
-#if __cplusplus < 201103L
+#if __cplusplus < 201103L && !defined(__INTELLISENSE__)
 	#error "Marlin requires C++11 support (gcc >= 4.7, Arduino IDE >= 1.6.8). Please upgrade your toolchain."
 #endif
 
