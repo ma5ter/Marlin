@@ -1,39 +1,39 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * MegaTronics v3.0 pin assignments
- */
+    MegaTronics v3.0 pin assignments
+*/
 
 #ifndef __AVR_ATmega2560__
-  #error "Oops!  Make sure you have 'Arduino Mega' selected from the 'Tools -> Boards' menu."
+	#error "Oops!  Make sure you have 'Arduino Mega' selected from the 'Tools -> Boards' menu."
 #endif
 
 #define MEGATRONICS_31
 
 #if ENABLED(MEGATRONICS_31)
-  #define BOARD_NAME       "Megatronics v3.1"
+	#define BOARD_NAME       "Megatronics v3.1"
 #else
-  #define BOARD_NAME       "Megatronics v3.0"
+	#define BOARD_NAME       "Megatronics v3.0"
 #endif
 
 #define LARGE_FLASH        true
@@ -60,7 +60,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN  19
+	#define Z_MIN_PROBE_PIN  19
 #endif
 
 //
@@ -94,24 +94,24 @@
 // Temperature Sensors
 //
 #if TEMP_SENSOR_0 == -1
-  #define TEMP_0_PIN       11   // Analog Input
+	#define TEMP_0_PIN       11   // Analog Input
 #else
-  #define TEMP_0_PIN       15   // Analog Input
+	#define TEMP_0_PIN       15   // Analog Input
 #endif
 #if TEMP_SENSOR_1 == -1
-  #define TEMP_1_PIN       10   // Analog Input
+	#define TEMP_1_PIN       10   // Analog Input
 #else
-  #define TEMP_1_PIN       13   // Analog Input
+	#define TEMP_1_PIN       13   // Analog Input
 #endif
 #if TEMP_SENSOR_2 == -1
-  #define TEMP_2_PIN        9   // Analog Input
+	#define TEMP_2_PIN        9   // Analog Input
 #else
-  #define TEMP_2_PIN       12   // Analog Input
+	#define TEMP_2_PIN       12   // Analog Input
 #endif
 #if TEMP_SENSOR_BED == -1
-  #define TEMP_BED_PIN      8   // Analog Input
+	#define TEMP_BED_PIN      8   // Analog Input
 #else
-  #define TEMP_BED_PIN     14   // Analog Input
+	#define TEMP_BED_PIN     14   // Analog Input
 #endif
 
 //
@@ -144,30 +144,30 @@
 
 #if ENABLED(REPRAPWORLD_GRAPHICAL_LCD)
 
-  #define LCD_PINS_RS      56   // CS chip select / SS chip slave select
-  #define LCD_PINS_ENABLE  51   // SID (MOSI)
-  #define LCD_PINS_D4      52   // SCK (CLK) clock
-  #define SD_DETECT_PIN    35
+	#define LCD_PINS_RS      56   // CS chip select / SS chip slave select
+	#define LCD_PINS_ENABLE  51   // SID (MOSI)
+	#define LCD_PINS_D4      52   // SCK (CLK) clock
+	#define SD_DETECT_PIN    35
 
 #else
 
-  #define LCD_PINS_RS      32
-  #define LCD_PINS_ENABLE  31
-  #define LCD_PINS_D4      14
-  #define LCD_PINS_D5      30
-  #define LCD_PINS_D6      39
-  #define LCD_PINS_D7      15
+	#define LCD_PINS_RS      32
+	#define LCD_PINS_ENABLE  31
+	#define LCD_PINS_D4      14
+	#define LCD_PINS_D5      30
+	#define LCD_PINS_D6      39
+	#define LCD_PINS_D7      15
 
-  #define SHIFT_CLK        43
-  #define SHIFT_LD         35
-  #define SHIFT_OUT        34
-  #define SHIFT_EN         44
+	#define SHIFT_CLK        43
+	#define SHIFT_LD         35
+	#define SHIFT_OUT        34
+	#define SHIFT_EN         44
 
-  #if ENABLED(MEGATRONICS_31)
-    #define SD_DETECT_PIN  56
-  #else
-    #define SD_DETECT_PIN  -1
-  #endif
+	#if ENABLED(MEGATRONICS_31)
+		#define SD_DETECT_PIN  56
+	#else
+		#define SD_DETECT_PIN  -1
+	#endif
 
 #endif
 
@@ -175,22 +175,22 @@
 // M3/M4/M5 - Spindle/Laser Control
 //
 #if DISABLED(REPRAPWORLD_KEYPAD)       // try to use the keypad connector first
-  #define SPINDLE_LASER_PWM_PIN    44  // MUST BE HARDWARE PWM
-  #define SPINDLE_LASER_ENABLE_PIN 43  // Pin should have a pullup!
-  #define SPINDLE_DIR_PIN          42
+	#define SPINDLE_LASER_PWM_PIN    44  // MUST BE HARDWARE PWM
+	#define SPINDLE_LASER_ENABLE_PIN 43  // Pin should have a pullup!
+	#define SPINDLE_DIR_PIN          42
 #elif EXTRUDERS <= 2
-  // Hijack the last extruder so that we can get the PWM signal off the Y breakout
-  // Move Y to the E2 plug. This makes dual Y steppers harder
-  #undef Y_ENABLE_PIN  //  4
-  #undef Y_STEP_PIN    //  5
-  #undef Y_DIR_PIN     // 17
-  #undef E2_ENABLE_PIN // 23
-  #undef E2_STEP_PIN   // 22
-  #undef E2_DIR_PIN    // 60
-  #define Y_ENABLE_PIN             23
-  #define Y_STEP_PIN               22
-  #define Y_DIR_PIN                60
-  #define SPINDLE_LASER_PWM_PIN     4  // MUST BE HARDWARE PWM
-  #define SPINDLE_LASER_ENABLE_PIN 17  // Pin should have a pullup!
-  #define SPINDLE_DIR_PIN           5
+	// Hijack the last extruder so that we can get the PWM signal off the Y breakout
+	// Move Y to the E2 plug. This makes dual Y steppers harder
+	#undef Y_ENABLE_PIN  //  4
+	#undef Y_STEP_PIN    //  5
+	#undef Y_DIR_PIN     // 17
+	#undef E2_ENABLE_PIN // 23
+	#undef E2_STEP_PIN   // 22
+	#undef E2_DIR_PIN    // 60
+	#define Y_ENABLE_PIN             23
+	#define Y_STEP_PIN               22
+	#define Y_DIR_PIN                60
+	#define SPINDLE_LASER_PWM_PIN     4  // MUST BE HARDWARE PWM
+	#define SPINDLE_LASER_ENABLE_PIN 17  // Pin should have a pullup!
+	#define SPINDLE_DIR_PIN           5
 #endif

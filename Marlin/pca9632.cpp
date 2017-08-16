@@ -1,29 +1,29 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /*
- * Driver for the Philips PCA9632 LED driver.
- * Written by Robert Mendon Feb 2017.
- */
+    Driver for the Philips PCA9632 LED driver.
+    Written by Robert Mendon Feb 2017.
+*/
 
 #include "MarlinConfig.h"
 
@@ -72,46 +72,51 @@
 
 byte PCA_init = 0;
 
-static void PCA9632_WriteRegister(const byte addr, const byte regadd, const byte value) {
-  Wire.beginTransmission(addr);
-  Wire.write(regadd);
-  Wire.write(value);
-  Wire.endTransmission();
+static void PCA9632_WriteRegister(const byte addr, const byte regadd, const byte value)
+{
+	Wire.beginTransmission(addr);
+	Wire.write(regadd);
+	Wire.write(value);
+	Wire.endTransmission();
 }
 
-static void PCA9632_WriteAllRegisters(const byte addr, const byte regadd, const byte value1, const byte value2, const byte value3) {
-  Wire.beginTransmission(addr);
-  Wire.write(PCA9632_AUTO_IND | regadd);
-  Wire.write(value1);
-  Wire.write(value2);
-  Wire.write(value3);
-  Wire.endTransmission();
+static void PCA9632_WriteAllRegisters(const byte addr, const byte regadd, const byte value1, const byte value2,
+									  const byte value3)
+{
+	Wire.beginTransmission(addr);
+	Wire.write(PCA9632_AUTO_IND | regadd);
+	Wire.write(value1);
+	Wire.write(value2);
+	Wire.write(value3);
+	Wire.endTransmission();
 }
 
 #if 0
-  static byte PCA9632_ReadRegister(const byte addr, const byte regadd) {
-    Wire.beginTransmission(addr);
-    Wire.write(regadd);
-    const byte value = Wire.read();
-    Wire.endTransmission();
-    return value;
-  }
+static byte PCA9632_ReadRegister(const byte addr, const byte regadd)
+{
+	Wire.beginTransmission(addr);
+	Wire.write(regadd);
+	const byte value = Wire.read();
+	Wire.endTransmission();
+	return value;
+}
 #endif
 
-void PCA9632_SetColor(const byte r, const byte g, const byte b) {
-  if (!PCA_init) {
-    PCA_init = 1;
-    Wire.begin();
-    PCA9632_WriteRegister(PCA9632_ADDRESS,PCA9632_MODE1, PCA9632_MODE1_VALUE);
-    PCA9632_WriteRegister(PCA9632_ADDRESS,PCA9632_MODE2, PCA9632_MODE2_VALUE);
-  }
+void PCA9632_SetColor(const byte r, const byte g, const byte b)
+{
+	if (!PCA_init) {
+		PCA_init = 1;
+		Wire.begin();
+		PCA9632_WriteRegister(PCA9632_ADDRESS, PCA9632_MODE1, PCA9632_MODE1_VALUE);
+		PCA9632_WriteRegister(PCA9632_ADDRESS, PCA9632_MODE2, PCA9632_MODE2_VALUE);
+	}
 
-  const byte LEDOUT = (r ? LED_PWM << PCA9632_RED : 0)
-                    | (g ? LED_PWM << PCA9632_GRN : 0)
-                    | (b ? LED_PWM << PCA9632_BLU : 0);
+	const byte LEDOUT = (r ? LED_PWM << PCA9632_RED : 0)
+						| (g ? LED_PWM << PCA9632_GRN : 0)
+						| (b ? LED_PWM << PCA9632_BLU : 0);
 
-  PCA9632_WriteAllRegisters(PCA9632_ADDRESS,PCA9632_PWM0, r, g, b);
-  PCA9632_WriteRegister(PCA9632_ADDRESS,PCA9632_LEDOUT, LEDOUT);
+	PCA9632_WriteAllRegisters(PCA9632_ADDRESS, PCA9632_PWM0, r, g, b);
+	PCA9632_WriteRegister(PCA9632_ADDRESS, PCA9632_LEDOUT, LEDOUT);
 }
 
 #endif // PCA9632

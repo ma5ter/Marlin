@@ -1,32 +1,32 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * Greek
- *
- * LCD Menu Messages
- * See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
- *
- */
+    Greek
+
+    LCD Menu Messages
+    See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
+
+*/
 #ifndef LANGUAGE_EL_H
 #define LANGUAGE_EL_H
 
@@ -189,13 +189,13 @@
 #define MSG_INFO_PROTOCOL                   _UxGT("Protocol")
 
 #if LCD_WIDTH >= 20
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Print Count")
-  #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Completed  ")
-  #define MSG_INFO_PRINT_TIME               _UxGT("Total Time ")
+	#define MSG_INFO_PRINT_COUNT              _UxGT("Print Count")
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("Completed  ")
+	#define MSG_INFO_PRINT_TIME               _UxGT("Total Time ")
 #else
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Prints   ")
-  #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Completed")
-  #define MSG_INFO_PRINT_TIME               _UxGT("Duration ")
+	#define MSG_INFO_PRINT_COUNT              _UxGT("Prints   ")
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("Completed")
+	#define MSG_INFO_PRINT_TIME               _UxGT("Duration ")
 #endif
 #define MSG_INFO_MIN_TEMP                   _UxGT("Min Temp")
 #define MSG_INFO_MAX_TEMP                   _UxGT("Max Temp")
@@ -206,29 +206,29 @@
 #define MSG_FILAMENT_CHANGE_OPTION_RESUME   _UxGT("Resume print")
 
 #if LCD_HEIGHT >= 4
-  // Up to 3 lines allowed
-  #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Wait for start")
-  #define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("of the filament")
-  #define MSG_FILAMENT_CHANGE_INIT_3          _UxGT("change")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Wait for")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("filament unload")
-  #define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Insert filament")
-  #define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("and press button")
-  #define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("to continue...")
-  #define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Wait for")
-  #define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("filament load")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Wait for")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("filament extrude")
-  #define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Wait for print")
-  #define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("to resume")
+	// Up to 3 lines allowed
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Wait for start")
+	#define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("of the filament")
+	#define MSG_FILAMENT_CHANGE_INIT_3          _UxGT("change")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Wait for")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("filament unload")
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Insert filament")
+	#define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("and press button")
+	#define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("to continue...")
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Wait for")
+	#define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("filament load")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Wait for")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("filament extrude")
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Wait for print")
+	#define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("to resume")
 #else // LCD_HEIGHT < 4
-  // Up to 2 lines allowed
-  #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Please wait...")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Ejecting...")
-  #define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Insert and Click")
-  #define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Loading...")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Extruding...")
-  #define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Resuming...")
+	// Up to 2 lines allowed
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Please wait...")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Ejecting...")
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Insert and Click")
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Loading...")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Extruding...")
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Resuming...")
 #endif
 
 #endif // LANGUAGE_EL_H

@@ -1,31 +1,31 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /************************************************
- * Rambo pin assignments MODIFIED FOR Scoovo X9H
+    Rambo pin assignments MODIFIED FOR Scoovo X9H
  ************************************************/
 
 #ifndef __AVR_ATmega2560__
-  #error "Oops!  Make sure you have 'Arduino Mega 2560' selected from the 'Tools -> Boards' menu."
+	#error "Oops!  Make sure you have 'Arduino Mega 2560' selected from the 'Tools -> Boards' menu."
 #endif
 
 #define BOARD_NAME "Scoovo X9H"
@@ -54,7 +54,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN   30
+	#define Z_MIN_PROBE_PIN   30
 #endif
 
 //
@@ -120,7 +120,7 @@
 #define PS_ON_PIN            4
 
 #ifndef FILWIDTH_PIN
-  #define FILWIDTH_PIN       3   // Analog Input
+	#define FILWIDTH_PIN       3   // Analog Input
 #endif
 
 //
@@ -145,14 +145,14 @@
 #define HOME_PIN            BTN_HOME
 
 #if ENABLED(VIKI2) || ENABLED(miniVIKI)
-  #define BEEPER_PIN        44
-  // Pins for DOGM SPI LCD Support
-  #define DOGLCD_A0         70
-  #define DOGLCD_CS         71
-  #define LCD_SCREEN_ROT_180
+	#define BEEPER_PIN        44
+	// Pins for DOGM SPI LCD Support
+	#define DOGLCD_A0         70
+	#define DOGLCD_CS         71
+	#define LCD_SCREEN_ROT_180
 
-  #define SD_DETECT_PIN     -1   // Pin 72 if using easy adapter board
+	#define SD_DETECT_PIN     -1   // Pin 72 if using easy adapter board
 
-  #define STAT_LED_RED_PIN  22
-  #define STAT_LED_BLUE_PIN 32
+	#define STAT_LED_RED_PIN  22
+	#define STAT_LED_BLUE_PIN 32
 #endif // VIKI2/miniVIKI

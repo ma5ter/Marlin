@@ -1,27 +1,29 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 #ifndef MACROS_H
 #define MACROS_H
+
+#include "vs.h"
 
 #define NUM_AXIS 4
 #define XYZE 4
@@ -38,8 +40,8 @@
 
 // Bracket code that shouldn't be interrupted
 #ifndef CRITICAL_SECTION_START
-  #define CRITICAL_SECTION_START  unsigned char _sreg = SREG; cli();
-  #define CRITICAL_SECTION_END    SREG = _sreg;
+	#define CRITICAL_SECTION_START  unsigned char _sreg = SREG; cli();
+	#define CRITICAL_SECTION_END    SREG = _sreg;
 #endif
 
 // Clock speed factors
@@ -55,26 +57,26 @@
 #define DELAY_5_NOP DELAY_1_NOP; DELAY_4_NOP
 
 #define DELAY_NOPS(X) \
-  switch (X) { \
-    case 20: DELAY_1_NOP; case 19: DELAY_1_NOP; \
-    case 18: DELAY_1_NOP; case 17: DELAY_1_NOP; \
-    case 16: DELAY_1_NOP; case 15: DELAY_1_NOP; \
-    case 14: DELAY_1_NOP; case 13: DELAY_1_NOP; \
-    case 12: DELAY_1_NOP; case 11: DELAY_1_NOP; \
-    case 10: DELAY_1_NOP; case 9:  DELAY_1_NOP; \
-    case 8:  DELAY_1_NOP; case 7:  DELAY_1_NOP; \
-    case 6:  DELAY_1_NOP; case 5:  DELAY_1_NOP; \
-    case 4:  DELAY_1_NOP; case 3:  DELAY_1_NOP; \
-    case 2:  DELAY_1_NOP; case 1:  DELAY_1_NOP; \
-  }
+	switch (X) { \
+	case 20: DELAY_1_NOP; case 19: DELAY_1_NOP; \
+	case 18: DELAY_1_NOP; case 17: DELAY_1_NOP; \
+	case 16: DELAY_1_NOP; case 15: DELAY_1_NOP; \
+	case 14: DELAY_1_NOP; case 13: DELAY_1_NOP; \
+	case 12: DELAY_1_NOP; case 11: DELAY_1_NOP; \
+	case 10: DELAY_1_NOP; case 9:  DELAY_1_NOP; \
+	case 8:  DELAY_1_NOP; case 7:  DELAY_1_NOP; \
+	case 6:  DELAY_1_NOP; case 5:  DELAY_1_NOP; \
+	case 4:  DELAY_1_NOP; case 3:  DELAY_1_NOP; \
+	case 2:  DELAY_1_NOP; case 1:  DELAY_1_NOP; \
+	}
 
 #define DELAY_10_NOP DELAY_5_NOP;  DELAY_5_NOP
 #define DELAY_20_NOP DELAY_10_NOP; DELAY_10_NOP
 
 #if CYCLES_PER_MICROSECOND == 16
-  #define DELAY_1US DELAY_10_NOP; DELAY_5_NOP; DELAY_1_NOP
+	#define DELAY_1US DELAY_10_NOP; DELAY_5_NOP; DELAY_1_NOP
 #else
-  #define DELAY_1US DELAY_20_NOP
+	#define DELAY_1US DELAY_20_NOP
 #endif
 #define DELAY_2US  DELAY_1US; DELAY_1US
 #define DELAY_3US  DELAY_1US; DELAY_2US
@@ -101,7 +103,7 @@
 
 // Macros for maths shortcuts
 #ifndef M_PI
-  #define M_PI 3.14159265358979323846
+	#define M_PI 3.14159265358979323846
 #endif
 #define RADIANS(d) ((d)*M_PI/180.0)
 #define DEGREES(r) ((r)*180.0/M_PI)

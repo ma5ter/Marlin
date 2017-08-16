@@ -1,35 +1,35 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * Mega controller pin assignments
- */
+    Mega controller pin assignments
+*/
 
 #ifndef __AVR_ATmega2560__
-  #error "Oops!  Make sure you have 'Arduino Mega' selected from the 'Tools -> Boards' menu."
+	#error "Oops!  Make sure you have 'Arduino Mega' selected from the 'Tools -> Boards' menu."
 #endif
 
 #if HOTENDS > 2 || E_STEPPERS > 2
-  #error "Mega Controller supports up to 2 hotends / E-steppers. Comment out this line to continue."
+	#error "Mega Controller supports up to 2 hotends / E-steppers. Comment out this line to continue."
 #endif
 
 #define BOARD_NAME "Mega Controller"
@@ -56,7 +56,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN  37
+	#define Z_MIN_PROBE_PIN  37
 #endif
 
 //
@@ -86,23 +86,23 @@
 // Temperature Sensors
 //
 #if TEMP_SENSOR_0 == -1
-  #define TEMP_0_PIN        4   // Analog Input
+	#define TEMP_0_PIN        4   // Analog Input
 #else
-  #define TEMP_0_PIN        0   // Analog Input
+	#define TEMP_0_PIN        0   // Analog Input
 #endif
 
 #if TEMP_SENSOR_1 == -1
-  #define TEMP_1_PIN        5   // Analog Input
+	#define TEMP_1_PIN        5   // Analog Input
 #else
-  #define TEMP_1_PIN        2   // Analog Input
+	#define TEMP_1_PIN        2   // Analog Input
 #endif
 
 #define TEMP_2_PIN          3   // Analog Input
 
 #if TEMP_SENSOR_BED == -1
-  #define TEMP_BED_PIN      6   // Analog Input
+	#define TEMP_BED_PIN      6   // Analog Input
 #else
-  #define TEMP_BED_PIN      1   // Analog Input
+	#define TEMP_BED_PIN      1   // Analog Input
 #endif
 
 //
@@ -117,7 +117,7 @@
 #define FAN2_PIN           36
 
 #ifndef CONTROLLER_FAN_PIN
-  #define CONTROLLER_FAN_PIN FAN2_PIN
+	#define CONTROLLER_FAN_PIN FAN2_PIN
 #endif
 
 #define FAN_SOFT_PWM
@@ -133,25 +133,25 @@
 // LCD / Controller
 //
 #if ENABLED(MINIPANEL)
-  #define BEEPER_PIN       46
-  // Pins for DOGM SPI LCD Support
-  #define DOGLCD_A0        47
-  #define DOGLCD_CS        45
-  #define LCD_BACKLIGHT_PIN 44  // backlight LED on PA3
+	#define BEEPER_PIN       46
+	// Pins for DOGM SPI LCD Support
+	#define DOGLCD_A0        47
+	#define DOGLCD_CS        45
+	#define LCD_BACKLIGHT_PIN 44  // backlight LED on PA3
 
-  #define KILL_PIN         12
-  // GLCD features
-  //#define LCD_CONTRAST 190
-  // Uncomment screen orientation
-  //#define LCD_SCREEN_ROT_90
-  //#define LCD_SCREEN_ROT_180
-  //#define LCD_SCREEN_ROT_270
+	#define KILL_PIN         12
+	// GLCD features
+	//#define LCD_CONTRAST 190
+	// Uncomment screen orientation
+	//#define LCD_SCREEN_ROT_90
+	//#define LCD_SCREEN_ROT_180
+	//#define LCD_SCREEN_ROT_270
 
-  #define BTN_EN1          48
-  #define BTN_EN2          11
-  #define BTN_ENC          10
+	#define BTN_EN1          48
+	#define BTN_EN2          11
+	#define BTN_ENC          10
 
-  #define SD_DETECT_PIN    49
+	#define SD_DETECT_PIN    49
 #endif // MINIPANEL
 
 //

@@ -1,40 +1,40 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * Turkish
- *
- * LCD Menu Messages
- * See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
- *
- */
+    Turkish
+
+    LCD Menu Messages
+    See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
+
+*/
 #ifndef LANGUAGE_TR_H
 #define LANGUAGE_TR_H
 
 #define MAPPER_C2C3_TR
 #define DISPLAY_CHARSET_ISO10646_TR
 
-#if DISABLED(DOGLCD)
-  #error "Turkish needs a graphical display."
+#if DISABLED(LCDKIND_GRAPHIC)
+	#error "Turkish needs a graphical display."
 #endif
 
 #define WELCOME_MSG                         MACHINE_NAME _UxGT(" hazır.")                               // hazır.
@@ -209,17 +209,17 @@
 #define MSG_CASE_LIGHT                      _UxGT("Aydınlatmayı")                                       // Aydınlatmayı Aç
 
 #if LCD_WIDTH >= 20
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Baskı Sayısı")                                       // Baskı Sayısı
-  #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Tamamlanan")                                         // Tamamlanan
-  #define MSG_INFO_PRINT_TIME               _UxGT("Toplam Baskı Süresi")                                // Toplam Baskı Süresi
-  #define MSG_INFO_PRINT_LONGEST            _UxGT("En Uzun Baskı Süresi")                               // En Uzun Baskı Süresi
-  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Toplam Filaman")                                     // Toplam Filaman
+	#define MSG_INFO_PRINT_COUNT              _UxGT("Baskı Sayısı")                                       // Baskı Sayısı
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("Tamamlanan")                                         // Tamamlanan
+	#define MSG_INFO_PRINT_TIME               _UxGT("Toplam Baskı Süresi")                                // Toplam Baskı Süresi
+	#define MSG_INFO_PRINT_LONGEST            _UxGT("En Uzun Baskı Süresi")                               // En Uzun Baskı Süresi
+	#define MSG_INFO_PRINT_FILAMENT           _UxGT("Toplam Filaman")                                     // Toplam Filaman
 #else
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Baskı")                                              // Baskı
-  #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Tamamlanan")                                         // Tamamlanan
-  #define MSG_INFO_PRINT_TIME               _UxGT("Süre")                                               // Süre
-  #define MSG_INFO_PRINT_LONGEST            _UxGT("En Uzun")                                            // En Uzun
-  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Filaman")                                            // Filaman
+	#define MSG_INFO_PRINT_COUNT              _UxGT("Baskı")                                              // Baskı
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("Tamamlanan")                                         // Tamamlanan
+	#define MSG_INFO_PRINT_TIME               _UxGT("Süre")                                               // Süre
+	#define MSG_INFO_PRINT_LONGEST            _UxGT("En Uzun")                                            // En Uzun
+	#define MSG_INFO_PRINT_FILAMENT           _UxGT("Filaman")                                            // Filaman
 #endif
 
 #define MSG_INFO_MIN_TEMP                   _UxGT("Min Sıc.")                                           // Min Sıcak.
@@ -237,33 +237,33 @@
 #define MSG_FILAMENT_CHANGE_NOZZLE          _UxGT("  Nozül: ")                                          //   Nozül:
 
 #if LCD_HEIGHT >= 4
-  // Up to 3 lines allowed
-  #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Başlama bekleniyor")                               // Başlama bekleniyor
-  #define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("filamanın")                                        // filamanın
-  #define MSG_FILAMENT_CHANGE_INIT_3          _UxGT("değişimi")                                         // değişimi
-  #define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Bekleniyor")                                       // Bekleniyor
-  #define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("filamanın çıkması")                                // filamanın çıkması
-  #define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Filamanı yükle")                                   // Filamanı yükle
-  #define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("ve devam için")                                    // ve devam için
-  #define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("tuşa bas...")                                      // tuşa bas...
-  #define MSG_FILAMENT_CHANGE_HEAT_1          _UxGT("Nozülü Isıtmak için")                              // Nozülü Isıtmak için
-  #define MSG_FILAMENT_CHANGE_HEAT_2          _UxGT("Butona Bas.")                                      // Butona Bas.
-  #define MSG_FILAMENT_CHANGE_HEATING_1       _UxGT("Nozül Isınıyor")                                   // Nozül Isınıyor
-  #define MSG_FILAMENT_CHANGE_HEATING_2       _UxGT("Lütfen Bekleyin...")                               // Lütfen Bekleyin...
-  #define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Bekleniyor")                                       // Bekleniyor
-  #define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("filamanın yüklenmesi")                             // filamanın yüklenmesi
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Bekleniyor")                                       // Bekleniyor
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("filaman akması")                                   // filaman akması
-  #define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Baskının sürdürülmesini")                          // Baskının sürdürülmesini
-  #define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("bekle")                                            // bekle
+	// Up to 3 lines allowed
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Başlama bekleniyor")                               // Başlama bekleniyor
+	#define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("filamanın")                                        // filamanın
+	#define MSG_FILAMENT_CHANGE_INIT_3          _UxGT("değişimi")                                         // değişimi
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Bekleniyor")                                       // Bekleniyor
+	#define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("filamanın çıkması")                                // filamanın çıkması
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Filamanı yükle")                                   // Filamanı yükle
+	#define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("ve devam için")                                    // ve devam için
+	#define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("tuşa bas...")                                      // tuşa bas...
+	#define MSG_FILAMENT_CHANGE_HEAT_1          _UxGT("Nozülü Isıtmak için")                              // Nozülü Isıtmak için
+	#define MSG_FILAMENT_CHANGE_HEAT_2          _UxGT("Butona Bas.")                                      // Butona Bas.
+	#define MSG_FILAMENT_CHANGE_HEATING_1       _UxGT("Nozül Isınıyor")                                   // Nozül Isınıyor
+	#define MSG_FILAMENT_CHANGE_HEATING_2       _UxGT("Lütfen Bekleyin...")                               // Lütfen Bekleyin...
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Bekleniyor")                                       // Bekleniyor
+	#define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("filamanın yüklenmesi")                             // filamanın yüklenmesi
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Bekleniyor")                                       // Bekleniyor
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("filaman akması")                                   // filaman akması
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Baskının sürdürülmesini")                          // Baskının sürdürülmesini
+	#define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("bekle")                                            // bekle
 #else // LCD_HEIGHT < 4
-  // Up to 2 lines allowed
-  #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Lütfen bekleyiniz...")                             // Lütfen bekleyiniz...
-  #define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Çıkartılıyor...")                                  // Çıkartılıyor...
-  #define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Yükle ve bas")                                     // Yükle ve bas
-  #define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Yüklüyor...")                                      // Yüklüyor...
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Akıtılıyor...")                                    // Akıtılıyor...
-  #define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Sürdürülüyor...")                                  // Sürdürülüyor...
+	// Up to 2 lines allowed
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Lütfen bekleyiniz...")                             // Lütfen bekleyiniz...
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Çıkartılıyor...")                                  // Çıkartılıyor...
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Yükle ve bas")                                     // Yükle ve bas
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Yüklüyor...")                                      // Yüklüyor...
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Akıtılıyor...")                                    // Akıtılıyor...
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Sürdürülüyor...")                                  // Sürdürülüyor...
 #endif // LCD_HEIGHT < 4
 
 #endif // LANGUAGE_TR_H

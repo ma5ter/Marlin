@@ -1,47 +1,47 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * IMPORTANT NOTE:
- * Rambo users should be sure to compile Marlin using either the RAMBo
- * board type if using the Arduino IDE - available via the link below - or
- * the 'rambo' environment if using platformio, by specifying '-e rambo' on
- * the command line or by changing the value of the 'env_default' variable to
- * 'rambo' in the supplied platformio.ini.
- *
- * If you don't compile using the proper board type, the RAMBo's extended
- * pins will likely be unavailable and accessories/addons may not work.
- *
- * Instructions for installing the Arduino RAMBo board type for the
- * Arduino IDE are available at:
- * http://reprap.org/wiki/Rambo_firmware
- */
+    IMPORTANT NOTE:
+    Rambo users should be sure to compile Marlin using either the RAMBo
+    board type if using the Arduino IDE - available via the link below - or
+    the 'rambo' environment if using platformio, by specifying '-e rambo' on
+    the command line or by changing the value of the 'env_default' variable to
+    'rambo' in the supplied platformio.ini.
+
+    If you don't compile using the proper board type, the RAMBo's extended
+    pins will likely be unavailable and accessories/addons may not work.
+
+    Instructions for installing the Arduino RAMBo board type for the
+    Arduino IDE are available at:
+    http://reprap.org/wiki/Rambo_firmware
+*/
 
 /**
- * Rambo pin assignments
- */
+    Rambo pin assignments
+*/
 
 #ifndef __AVR_ATmega2560__
-  #error "Oops!  Make sure you have 'Arduino Mega 2560' selected from the 'Tools -> Boards' menu."
+	#error "Oops!  Make sure you have 'Arduino Mega 2560' selected from the 'Tools -> Boards' menu."
 #endif
 
 #define BOARD_NAME "Rambo"
@@ -60,7 +60,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN  30
+	#define Z_MIN_PROBE_PIN  30
 #endif
 
 //
@@ -139,7 +139,7 @@
 #define CASE_LIGHT_PIN     46
 
 #ifndef FILWIDTH_PIN
-  #define FILWIDTH_PIN      3   // Analog Input
+	#define FILWIDTH_PIN      3   // Analog Input
 #endif
 
 //
@@ -159,70 +159,70 @@
 //
 // LCD / Controller
 //
-#if ENABLED(ULTRA_LCD)
+#if ENABLED(LCDKIND_CHARACTER)
 
-  #define KILL_PIN 80
+	#define KILL_PIN 80
 
-  #if ENABLED(NEWPANEL)
+	#if ENABLED(NEWPANEL)
 
-    #define LCD_PINS_RS     70
-    #define LCD_PINS_ENABLE 71
-    #define LCD_PINS_D4     72
-    #define LCD_PINS_D5     73
-    #define LCD_PINS_D6     74
-    #define LCD_PINS_D7     75
+		#define LCD_PINS_RS     70
+		#define LCD_PINS_ENABLE 71
+		#define LCD_PINS_D4     72
+		#define LCD_PINS_D5     73
+		#define LCD_PINS_D6     74
+		#define LCD_PINS_D7     75
 
-    #if ENABLED(VIKI2) || ENABLED(miniVIKI)
-      #define BEEPER_PIN 44
-      // NB: Panucatt's Viki 2.0 wiring diagram (v1.2) indicates that the
-      //     beeper/buzzer is connected to pin 33; however, the pin used in the
-      //     diagram is actually pin 44, so this is correct.
+		#if ENABLED(VIKI2) || ENABLED(miniVIKI)
+			#define BEEPER_PIN 44
+			// NB: Panucatt's Viki 2.0 wiring diagram (v1.2) indicates that the
+			//     beeper/buzzer is connected to pin 33; however, the pin used in the
+			//     diagram is actually pin 44, so this is correct.
 
-      #define DOGLCD_A0  70
-      #define DOGLCD_CS  71
-      #define LCD_SCREEN_ROT_180
+			#define DOGLCD_A0  70
+			#define DOGLCD_CS  71
+			#define LCD_SCREEN_ROT_180
 
-      #define BTN_EN1 85
-      #define BTN_EN2 84
-      #define BTN_ENC 83
+			#define BTN_EN1 85
+			#define BTN_EN2 84
+			#define BTN_ENC 83
 
-      #define SD_DETECT_PIN -1 // Pin 72 if using easy adapter board
+			#define SD_DETECT_PIN -1 // Pin 72 if using easy adapter board
 
-      #define STAT_LED_RED_PIN 22
-      #define STAT_LED_BLUE_PIN 32
+			#define STAT_LED_RED_PIN 22
+			#define STAT_LED_BLUE_PIN 32
 
-    #else
+		#else
 
-      #define BEEPER_PIN 79 // AUX-4
+			#define BEEPER_PIN 79 // AUX-4
 
-      // AUX-2
-      #define BTN_EN1 76
-      #define BTN_EN2 77
-      #define BTN_ENC 78
+			// AUX-2
+			#define BTN_EN1 76
+			#define BTN_EN2 77
+			#define BTN_ENC 78
 
-      #define SD_DETECT_PIN 81
+			#define SD_DETECT_PIN 81
 
-    #endif // VIKI2/miniVIKI
+		#endif // VIKI2/miniVIKI
 
-  #else // !NEWPANEL - old style panel with shift register
+	#else // !NEWPANEL - old style panel with shift register
 
-    // No Beeper added
-    #define BEEPER_PIN 33
+		// No Beeper added
+		#define BEEPER_PIN 33
 
-    // buttons are attached to a shift register
-    // Not wired yet
-    //#define SHIFT_CLK 38
-    //#define SHIFT_LD 42
-    //#define SHIFT_OUT 40
-    //#define SHIFT_EN 17
+		// buttons are attached to a shift register
+		// Not wired yet
+		//#define SHIFT_CLK 38
+		//#define SHIFT_LD 42
+		//#define SHIFT_OUT 40
+		//#define SHIFT_EN 17
 
-    #define LCD_PINS_RS     75
-    #define LCD_PINS_ENABLE 17
-    #define LCD_PINS_D4     23
-    #define LCD_PINS_D5     25
-    #define LCD_PINS_D6     27
-    #define LCD_PINS_D7     29
+		#define LCD_PINS_RS     75
+		#define LCD_PINS_ENABLE 17
+		#define LCD_PINS_D4     23
+		#define LCD_PINS_D5     25
+		#define LCD_PINS_D6     27
+		#define LCD_PINS_D7     29
 
-  #endif // !NEWPANEL
+	#endif // !NEWPANEL
 
-#endif // ULTRA_LCD
+#endif // LCDKIND_CHARACTER

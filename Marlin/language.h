@@ -1,24 +1,24 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 #ifndef LANGUAGE_H
 #define LANGUAGE_H
@@ -32,7 +32,7 @@
 
 // Fallback if no language is set. DON'T CHANGE
 #ifndef LCD_LANGUAGE
-  #define LCD_LANGUAGE en
+	#define LCD_LANGUAGE en
 #endif
 
 // For character-based LCD controllers (DISPLAY_CHARSET_HD44780)
@@ -77,32 +77,32 @@
 // uk         Ukrainian
 
 #ifdef DEFAULT_SOURCE_CODE_URL
-  #undef  SOURCE_CODE_URL
-  #define SOURCE_CODE_URL DEFAULT_SOURCE_CODE_URL
+	#undef  SOURCE_CODE_URL
+	#define SOURCE_CODE_URL DEFAULT_SOURCE_CODE_URL
 #endif
 
 #ifdef CUSTOM_MACHINE_NAME
-  #undef  MACHINE_NAME
-  #define MACHINE_NAME CUSTOM_MACHINE_NAME
+	#undef  MACHINE_NAME
+	#define MACHINE_NAME CUSTOM_MACHINE_NAME
 #else
-  #ifdef DEFAULT_MACHINE_NAME
-    #undef  MACHINE_NAME
-    #define MACHINE_NAME DEFAULT_MACHINE_NAME
-  #endif
+	#ifdef DEFAULT_MACHINE_NAME
+		#undef  MACHINE_NAME
+		#define MACHINE_NAME DEFAULT_MACHINE_NAME
+	#endif
 #endif
 
 #ifndef MACHINE_UUID
-  #define MACHINE_UUID DEFAULT_MACHINE_UUID
+	#define MACHINE_UUID DEFAULT_MACHINE_UUID
 #endif
 
 #ifdef DEFAULT_WEBSITE_URL
-  #undef  WEBSITE_URL
-  #define WEBSITE_URL DEFAULT_WEBSITE_URL
+	#undef  WEBSITE_URL
+	#define WEBSITE_URL DEFAULT_WEBSITE_URL
 #endif
 
 // Common LCD messages
 
-  /* nothing here yet */
+/* nothing here yet */
 
 // Common serial messages
 #define MSG_MARLIN "Marlin"
@@ -294,15 +294,15 @@
 #include INCLUDE_LANGUAGE
 
 #if DISABLED(SIMULATE_ROMFONT) \
- && DISABLED(DISPLAY_CHARSET_ISO10646_1) \
- && DISABLED(DISPLAY_CHARSET_ISO10646_5) \
- && DISABLED(DISPLAY_CHARSET_ISO10646_KANA) \
- && DISABLED(DISPLAY_CHARSET_ISO10646_GREEK) \
- && DISABLED(DISPLAY_CHARSET_ISO10646_CN) \
- && DISABLED(DISPLAY_CHARSET_ISO10646_TR) \
- && DISABLED(DISPLAY_CHARSET_ISO10646_PL) \
- && DISABLED(DISPLAY_CHARSET_ISO10646_CZ)
-  #define DISPLAY_CHARSET_ISO10646_1 // use the better font on full graphic displays.
+	&& DISABLED(DISPLAY_CHARSET_ISO10646_1) \
+	&& DISABLED(DISPLAY_CHARSET_ISO10646_5) \
+	&& DISABLED(DISPLAY_CHARSET_ISO10646_KANA) \
+	&& DISABLED(DISPLAY_CHARSET_ISO10646_GREEK) \
+	&& DISABLED(DISPLAY_CHARSET_ISO10646_CN) \
+	&& DISABLED(DISPLAY_CHARSET_ISO10646_TR) \
+	&& DISABLED(DISPLAY_CHARSET_ISO10646_PL) \
+	&& DISABLED(DISPLAY_CHARSET_ISO10646_CZ)
+	#define DISPLAY_CHARSET_ISO10646_1 // use the better font on full graphic displays.
 #endif
 
 #include "language_en.h"

@@ -1,31 +1,31 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * bq ZUM Mega 3D board definition
- */
+    bq ZUM Mega 3D board definition
+*/
 
 #ifndef __AVR_ATmega2560__
-  #error "Oops! Make sure you have 'Arduino Mega 2560' selected from the 'Tools -> Boards' menu."
+	#error "Oops! Make sure you have 'Arduino Mega 2560' selected from the 'Tools -> Boards' menu."
 #endif
 
 #define BOARD_NAME "ZUM Mega 3D"
@@ -102,10 +102,10 @@
 // endstop and the instruction manual advises the user to connect the probe to
 // IND_S_5V the option Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN will not work.
 #ifdef Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
-  #undef Z_MIN_PIN
-  #undef Z_MAX_PIN
-  #define Z_MIN_PIN       19 // IND_S_5V
-  #define Z_MAX_PIN       18 // Z-MIN Label
+	#undef Z_MIN_PIN
+	#undef Z_MAX_PIN
+	#define Z_MIN_PIN       19 // IND_S_5V
+	#define Z_MAX_PIN       18 // Z-MIN Label
 #endif
 
 
@@ -113,6 +113,6 @@
 // This pin is used by the official Hephestos 2 heated bed upgrade kit
 //
 #if ENABLED(HEPHESTOS2_HEATED_BED_KIT)
-  #undef HEATER_BED_PIN
-  #define HEATER_BED_PIN 8
+	#undef HEATER_BED_PIN
+	#define HEATER_BED_PIN 8
 #endif

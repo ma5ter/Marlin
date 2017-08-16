@@ -1,28 +1,28 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * Polish for DOGM display - includes accented characters
- */
+    Polish for DOGM display - includes accented characters
+*/
 
 #define WELCOME_MSG                         MACHINE_NAME _UxGT(" gotowy.")
 #define MSG_SD_INSERTED                     _UxGT("Karta włożona")
@@ -188,17 +188,17 @@
 #define MSG_CASE_LIGHT                      _UxGT("Oświetlenie")
 
 #if LCD_WIDTH >= 20
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Wydrukowano")
-  #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Ukończono")
-  #define MSG_INFO_PRINT_TIME               _UxGT("Czas druku")
-  #define MSG_INFO_PRINT_LONGEST            _UxGT("Najdł. druk")
-  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Użyty fil.")
+	#define MSG_INFO_PRINT_COUNT              _UxGT("Wydrukowano")
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("Ukończono")
+	#define MSG_INFO_PRINT_TIME               _UxGT("Czas druku")
+	#define MSG_INFO_PRINT_LONGEST            _UxGT("Najdł. druk")
+	#define MSG_INFO_PRINT_FILAMENT           _UxGT("Użyty fil.")
 #else
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Wydrukowano")
-  #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Ukończono")
-  #define MSG_INFO_PRINT_TIME               _UxGT("Razem")
-  #define MSG_INFO_PRINT_LONGEST            _UxGT("Najdł. druk")
-  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Użyty fil.")
+	#define MSG_INFO_PRINT_COUNT              _UxGT("Wydrukowano")
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("Ukończono")
+	#define MSG_INFO_PRINT_TIME               _UxGT("Razem")
+	#define MSG_INFO_PRINT_LONGEST            _UxGT("Najdł. druk")
+	#define MSG_INFO_PRINT_FILAMENT           _UxGT("Użyty fil.")
 #endif
 
 #define MSG_INFO_MIN_TEMP                   _UxGT("Min Temp")
@@ -215,26 +215,26 @@
 #define MSG_FILAMENT_CHANGE_OPTION_RESUME   _UxGT("Wznów drukowanie")
 
 #if LCD_HEIGHT >= 4
-  // Up to 3 lines allowed
-  #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Czekam na ")
-  #define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("zmianę filamentu")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Czekam na")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("wyjęcie filamentu")
-  #define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Włóz filament")
-  #define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("i naciśnij przycisk")
-  #define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("aby kontynuować...")
-  #define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Czekam na")
-  #define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("włożenie filamentu")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Czekam na")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("ekstruzję filamentu")
-  #define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Czekam na")
-  #define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("wznowienie druku")
+	// Up to 3 lines allowed
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Czekam na ")
+	#define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("zmianę filamentu")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Czekam na")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("wyjęcie filamentu")
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Włóz filament")
+	#define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("i naciśnij przycisk")
+	#define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("aby kontynuować...")
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Czekam na")
+	#define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("włożenie filamentu")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Czekam na")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("ekstruzję filamentu")
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Czekam na")
+	#define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("wznowienie druku")
 #else // LCD_HEIGHT < 4
-  // Up to 2 lines allowed
-  #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Proszę czekać...")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Wysuwanie...")
-  #define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Włóż i naciśnij prz.")
-  #define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Ładowanie...")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Ekstruzja...")
-  #define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Wznowienie...")
+	// Up to 2 lines allowed
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Proszę czekać...")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Wysuwanie...")
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Włóż i naciśnij prz.")
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Ładowanie...")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Ekstruzja...")
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Wznowienie...")
 #endif // LCD_HEIGHT < 4

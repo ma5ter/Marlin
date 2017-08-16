@@ -1,39 +1,39 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * Ultiboard v2.0 pin assignments
- */
+    Ultiboard v2.0 pin assignments
+*/
 
 /**
- * Rev B   2 JAN 2017
- *
- *  Added pin definitions for:
- *    M3, M4 & M5 spindle control commands
- *    case light
- */
+    Rev B   2 JAN 2017
+
+    Added pin definitions for:
+      M3, M4 & M5 spindle control commands
+      case light
+*/
 
 #ifndef __AVR_ATmega2560__
-  #error "Oops!  Make sure you have 'Arduino Mega 2560' selected from the 'Tools -> Boards' menu."
+	#error "Oops!  Make sure you have 'Arduino Mega 2560' selected from the 'Tools -> Boards' menu."
 #endif
 
 #define DEFAULT_MACHINE_NAME    "Ultimaker"
@@ -75,7 +75,7 @@
 #define MOTOR_CURRENT_PWM_E_PIN 46
 // Motor current PWM conversion, PWM value = MotorCurrentSetting * 255 / range
 #ifndef MOTOR_CURRENT_PWM_RANGE
-  #define MOTOR_CURRENT_PWM_RANGE 2000
+	#define MOTOR_CURRENT_PWM_RANGE 2000
 #endif
 #define DEFAULT_PWM_MOTOR_CURRENT  {1300, 1300, 1250}
 
@@ -125,11 +125,11 @@
 // M3/M4/M5 - Spindle/Laser Control
 //
 #if ENABLED(SPINDLE_LASER_ENABLE)   // use the LED_PIN for spindle speed control or case light
-  #undef LED_PIN
-  #define SPINDLE_DIR_PIN          16
-  #define SPINDLE_LASER_ENABLE_PIN 17  // Pin should have a pullup!
-  #define SPINDLE_LASER_PWM_PIN     8  // MUST BE HARDWARE PWM
+	#undef LED_PIN
+	#define SPINDLE_DIR_PIN          16
+	#define SPINDLE_LASER_ENABLE_PIN 17  // Pin should have a pullup!
+	#define SPINDLE_LASER_PWM_PIN     8  // MUST BE HARDWARE PWM
 #else
-  #undef LED_PIN
-  #define CASE_LIGHT_PIN            8
+	#undef LED_PIN
+	#define CASE_LIGHT_PIN            8
 #endif

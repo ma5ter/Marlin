@@ -1,32 +1,32 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * Simplified Chinese
- *
- * LCD Menu Messages
- * See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
- *
- */
+    Simplified Chinese
+
+    LCD Menu Messages
+    See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
+
+*/
 #ifndef LANGUAGE_ZH_CN_H
 #define LANGUAGE_ZH_CN_H
 
@@ -184,17 +184,17 @@
 #define MSG_INFO_PROTOCOL                   _UxGT("协议")  //"Protocol"
 
 #if LCD_WIDTH > 19
-#define MSG_INFO_PRINT_COUNT              _UxGT("打印计数")  //"Print Count"
-#define MSG_INFO_COMPLETED_PRINTS         _UxGT("完成了")  //"Completed"
-#define MSG_INFO_PRINT_TIME               _UxGT("总打印时间")  //"Total print time"
-#define MSG_INFO_PRINT_LONGEST            _UxGT("最长工作时间")  //"Longest job time"
-#define MSG_INFO_PRINT_FILAMENT           _UxGT("总计挤出")  //"Extruded total"
+	#define MSG_INFO_PRINT_COUNT              _UxGT("打印计数")  //"Print Count"
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("完成了")  //"Completed"
+	#define MSG_INFO_PRINT_TIME               _UxGT("总打印时间")  //"Total print time"
+	#define MSG_INFO_PRINT_LONGEST            _UxGT("最长工作时间")  //"Longest job time"
+	#define MSG_INFO_PRINT_FILAMENT           _UxGT("总计挤出")  //"Extruded total"
 #else
-#define MSG_INFO_PRINT_COUNT              _UxGT("打印数")  //"Prints"
-#define MSG_INFO_COMPLETED_PRINTS         _UxGT("完成")  //"Completed"
-#define MSG_INFO_PRINT_TIME               _UxGT("总共")  //"Total"
-#define MSG_INFO_PRINT_LONGEST            _UxGT("最长")  //"Longest"
-#define MSG_INFO_PRINT_FILAMENT           _UxGT("已挤出")  //"Extruded"
+	#define MSG_INFO_PRINT_COUNT              _UxGT("打印数")  //"Prints"
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("完成")  //"Completed"
+	#define MSG_INFO_PRINT_TIME               _UxGT("总共")  //"Total"
+	#define MSG_INFO_PRINT_LONGEST            _UxGT("最长")  //"Longest"
+	#define MSG_INFO_PRINT_FILAMENT           _UxGT("已挤出")  //"Extruded"
 #endif
 
 #define MSG_INFO_MIN_TEMP                   _UxGT("最低温度")  //"Min Temp"
@@ -207,32 +207,32 @@
 #define MSG_FILAMENT_CHANGE_OPTION_RESUME   _UxGT("恢复打印")  //"Resume print"
 
 #if LCD_HEIGHT >= 4
-#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("等待开始")  //"Wait for start"
-#define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("丝料")  //"of the filament"
-#define MSG_FILAMENT_CHANGE_INIT_3          _UxGT("变更")  //"change"
-#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("等待")  //"Wait for"
-#define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("卸下丝料")  //"filament unload"
-#define MSG_FILAMENT_CHANGE_UNLOAD_3        _UxGT("")  //""
-#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("插入丝料")  //"Insert filament"
-#define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("并按键")  //"and press button"
-#define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("来继续 ...")  //"to continue..."
-#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("等待")  //"Wait for"
-#define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("进料")  //"filament load"
-#define MSG_FILAMENT_CHANGE_LOAD_3          _UxGT("")  //""
-#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("等待")  //"Wait for"
-#define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("丝料挤出")  //"filament extrude"
-#define MSG_FILAMENT_CHANGE_EXTRUDE_3       _UxGT("")  //""
-#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("等待打印")  //"Wait for print"
-#define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("恢复")  //"to resume"
-#define MSG_FILAMENT_CHANGE_RESUME_3        _UxGT("")  //""
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("等待开始")  //"Wait for start"
+	#define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("丝料")  //"of the filament"
+	#define MSG_FILAMENT_CHANGE_INIT_3          _UxGT("变更")  //"change"
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("等待")  //"Wait for"
+	#define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("卸下丝料")  //"filament unload"
+	#define MSG_FILAMENT_CHANGE_UNLOAD_3        _UxGT("")  //""
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("插入丝料")  //"Insert filament"
+	#define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("并按键")  //"and press button"
+	#define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("来继续 ...")  //"to continue..."
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("等待")  //"Wait for"
+	#define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("进料")  //"filament load"
+	#define MSG_FILAMENT_CHANGE_LOAD_3          _UxGT("")  //""
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("等待")  //"Wait for"
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("丝料挤出")  //"filament extrude"
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_3       _UxGT("")  //""
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("等待打印")  //"Wait for print"
+	#define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("恢复")  //"to resume"
+	#define MSG_FILAMENT_CHANGE_RESUME_3        _UxGT("")  //""
 
 #else // LCD_HEIGHT < 4
-#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("请等待 ...")  //"Please wait..."
-#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("退出中 ...")  //"Ejecting..."
-#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("插入并单击")  //"Insert and Click"
-#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("装载中 ...")  //"Loading..."
-#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("挤出中 ...")  //"Extruding..."
-#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("恢复中 ...")  //"Resuming..."
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("请等待 ...")  //"Please wait..."
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("退出中 ...")  //"Ejecting..."
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("插入并单击")  //"Insert and Click"
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("装载中 ...")  //"Loading..."
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("挤出中 ...")  //"Extruding..."
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("恢复中 ...")  //"Resuming..."
 #endif // LCD_HEIGHT < 4
 
 #endif // LANGUAGE_ZH_CN_H

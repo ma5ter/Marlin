@@ -1,74 +1,74 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2017 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2017 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * Brainwave 1.0 pin assignments (AT90USB646)
- *
- * Requires hardware bundle for Arduino:
- * https://github.com/unrepentantgeek/brainwave-arduino
- */
+    Brainwave 1.0 pin assignments (AT90USB646)
+
+    Requires hardware bundle for Arduino:
+    https://github.com/unrepentantgeek/brainwave-arduino
+*/
 
 /**
- *  Rev B  16 JAN 2017
- *
- *  Added pointer to a currently available Arduino IDE extension that will
- *  allow this board to use the latest Marlin software
- */
+    Rev B  16 JAN 2017
+
+    Added pointer to a currently available Arduino IDE extension that will
+    allow this board to use the latest Marlin software
+*/
 
 /**
- *  Rev C  2 JUN 2017
- *
- *  Converted to Arduino pin numbering
- */
+    Rev C  2 JUN 2017
+
+    Converted to Arduino pin numbering
+*/
 
 /**
- *  Marlin_AT90USB - https://github.com/Bob-the-Kuhn/Marlin_AT90USB
- *    This is the only known IDE extension that is compatible with the pin definitions
- *    in this file, Adrduino 1.6.12 and the latest mainstream Marlin software.
- *
- *    "Marlin_AT90USB" makes PWM0A available rather than the usual PWM1C. These PWMs share
- *    the same physical pin. Marlin uses TIMER1 to generate interrupts and sets it up such
- *    that PWM1A, PWM1B & PWM1C can't be used.
- *
- *  Installation:
- *
- *    1. In the Arduino IDE, under Files -> Preferences paste the following URL
- *       https://rawgit.com/Bob-the-Kuhn/Marlin_AT90USB/master/package_MARLIN_AT90USB_index.json
- *    2. Under Tools -> Board -> Boards manager, scroll to the bottom, click on MARLIN_AT90USB
- *       and then click on "Install"
- *    3. Select "AT90USB646_TEENSYPP" from the 'Tools -> Boards' menu.
- */
+    Marlin_AT90USB - https://github.com/Bob-the-Kuhn/Marlin_AT90USB
+      This is the only known IDE extension that is compatible with the pin definitions
+      in this file, Adrduino 1.6.12 and the latest mainstream Marlin software.
+
+      "Marlin_AT90USB" makes PWM0A available rather than the usual PWM1C. These PWMs share
+      the same physical pin. Marlin uses TIMER1 to generate interrupts and sets it up such
+      that PWM1A, PWM1B & PWM1C can't be used.
+
+    Installation:
+
+      1. In the Arduino IDE, under Files -> Preferences paste the following URL
+         https://rawgit.com/Bob-the-Kuhn/Marlin_AT90USB/master/package_MARLIN_AT90USB_index.json
+      2. Under Tools -> Board -> Boards manager, scroll to the bottom, click on MARLIN_AT90USB
+         and then click on "Install"
+      3. Select "AT90USB646_TEENSYPP" from the 'Tools -> Boards' menu.
+*/
 
 /**
- *  To burn the bootloader that comes with Marlin_AT90USB:
- *
- *    1. Connect your programmer to the board.
- *    2. In Arduino IDE select "AT90USB646_TEENSYPP" and then select the programmer.
- *    3. In Arduino IDE click on "burn bootloader". Don't worry about the "verify failed at 1F000" error message.
- *    4. The programmer is no longer needed. Remove it.
- */
+    To burn the bootloader that comes with Marlin_AT90USB:
+
+      1. Connect your programmer to the board.
+      2. In Arduino IDE select "AT90USB646_TEENSYPP" and then select the programmer.
+      3. In Arduino IDE click on "burn bootloader". Don't worry about the "verify failed at 1F000" error message.
+      4. The programmer is no longer needed. Remove it.
+*/
 
 #ifndef __AVR_AT90USB646__
-  #error "Oops!  Make sure you have 'AT90USB646_TEENSYPP' selected from the 'Tools -> Boards' menu."
+	#error "Oops!  Make sure you have 'AT90USB646_TEENSYPP' selected from the 'Tools -> Boards' menu."
 #endif
 
 #define BOARD_NAME         "Brainwave"

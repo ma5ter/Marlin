@@ -1,4 +1,6 @@
-#ifdef __INTELLISENSE__
+#if defined(__INTELLISENSE__) && !defined(__VISUAL_STUDIO_STUBS__)
+
+#define __VISUAL_STUDIO_STUBS__
 
 #define __inline__
 #define __asm__(...)

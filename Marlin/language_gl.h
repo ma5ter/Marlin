@@ -1,32 +1,32 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * Galician language (ISO "gl")
- *
- * LCD Menu Messages
- * See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
- *
- */
+    Galician language (ISO "gl")
+
+    LCD Menu Messages
+    See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
+
+*/
 #ifndef LANGUAGE_GL_H
 #define LANGUAGE_GL_H
 
@@ -194,17 +194,17 @@
 #define MSG_INFO_PROTOCOL                   _UxGT("Protocolo")
 #define MSG_CASE_LIGHT                      _UxGT("Luz")
 #if LCD_WIDTH >= 20
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Total traballos")
-  #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Total completos")
-  #define MSG_INFO_PRINT_TIME               _UxGT("Tempo impresion")
-  #define MSG_INFO_PRINT_LONGEST            _UxGT("Traballo +longo")
-  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Total extruido")
+	#define MSG_INFO_PRINT_COUNT              _UxGT("Total traballos")
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("Total completos")
+	#define MSG_INFO_PRINT_TIME               _UxGT("Tempo impresion")
+	#define MSG_INFO_PRINT_LONGEST            _UxGT("Traballo +longo")
+	#define MSG_INFO_PRINT_FILAMENT           _UxGT("Total extruido")
 #else
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Traballos")
-  #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Completos")
-  #define MSG_INFO_PRINT_TIME               _UxGT("Tempo")
-  #define MSG_INFO_PRINT_LONGEST            _UxGT("O +longo")
-  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Extruido")
+	#define MSG_INFO_PRINT_COUNT              _UxGT("Traballos")
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("Completos")
+	#define MSG_INFO_PRINT_TIME               _UxGT("Tempo")
+	#define MSG_INFO_PRINT_LONGEST            _UxGT("O +longo")
+	#define MSG_INFO_PRINT_FILAMENT           _UxGT("Extruido")
 #endif
 #define MSG_INFO_MIN_TEMP                   _UxGT("Min Temp")
 #define MSG_INFO_MAX_TEMP                   _UxGT("Max Temp")
@@ -219,33 +219,33 @@
 #define MSG_FILAMENT_CHANGE_OPTION_RESUME   _UxGT("Segue traballo")
 
 #if LCD_HEIGHT >= 4
-  // Up to 3 lines allowed
-  #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Agarde para")
-  #define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("iniciar troco")
-  #define MSG_FILAMENT_CHANGE_INIT_3          _UxGT("de filamento")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Agarde pola")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("descarga do")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_3        _UxGT("filamento")
-  #define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Introduza o")
-  #define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("filamento e")
-  #define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("faga click")
-  #define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Agarde pola")
-  #define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("carga do")
-  #define MSG_FILAMENT_CHANGE_LOAD_3          _UxGT("filamento")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Agarde pola")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("extrusion do")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_3       _UxGT("filamento")
-  #define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Agarde para")
-  #define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("seguir co")
-  #define MSG_FILAMENT_CHANGE_RESUME_3        _UxGT("traballo")
+	// Up to 3 lines allowed
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Agarde para")
+	#define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("iniciar troco")
+	#define MSG_FILAMENT_CHANGE_INIT_3          _UxGT("de filamento")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Agarde pola")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("descarga do")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_3        _UxGT("filamento")
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Introduza o")
+	#define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("filamento e")
+	#define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("faga click")
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Agarde pola")
+	#define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("carga do")
+	#define MSG_FILAMENT_CHANGE_LOAD_3          _UxGT("filamento")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Agarde pola")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("extrusion do")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_3       _UxGT("filamento")
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Agarde para")
+	#define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("seguir co")
+	#define MSG_FILAMENT_CHANGE_RESUME_3        _UxGT("traballo")
 #else // LCD_HEIGHT < 4
-  // Up to 2 lines allowed
-  #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Agarde...")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Descargando...")
-  #define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Introduza e click")
-  #define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Cargando...")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Extruindo...")
-  #define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Seguindo...")
+	// Up to 2 lines allowed
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Agarde...")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Descargando...")
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Introduza e click")
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Cargando...")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Extruindo...")
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Seguindo...")
 #endif // LCD_HEIGHT < 4
 
 #endif // LANGUAGE_GL_H

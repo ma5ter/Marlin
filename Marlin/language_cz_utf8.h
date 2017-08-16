@@ -1,37 +1,37 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * Czech
- * UTF-8 for Graphical Display
- *
- * LCD Menu Messages
- * See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
- *
- * Translated by Petr Zahradnik, Computer Laboratory
- * Blog and video blog Zahradnik se bavi
- * http://www.zahradniksebavi.cz
- *
- */
+    Czech
+    UTF-8 for Graphical Display
+
+    LCD Menu Messages
+    See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
+
+    Translated by Petr Zahradnik, Computer Laboratory
+    Blog and video blog Zahradnik se bavi
+    http://www.zahradniksebavi.cz
+
+*/
 #ifndef LANGUAGE_CZ_UTF_H
 #define LANGUAGE_CZ_UTF_H
 
@@ -286,17 +286,17 @@
 #define MSG_CASE_LIGHT_BRIGHTNESS           _UxGT("Jas světla")
 
 #if LCD_WIDTH >= 20
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Počet tisků")
-  #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Dokončeno")
-  #define MSG_INFO_PRINT_TIME               _UxGT("Celkový čas")
-  #define MSG_INFO_PRINT_LONGEST            _UxGT("Nejdelší tisk")
-  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Celkem vytlačeno")
+	#define MSG_INFO_PRINT_COUNT              _UxGT("Počet tisků")
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("Dokončeno")
+	#define MSG_INFO_PRINT_TIME               _UxGT("Celkový čas")
+	#define MSG_INFO_PRINT_LONGEST            _UxGT("Nejdelší tisk")
+	#define MSG_INFO_PRINT_FILAMENT           _UxGT("Celkem vytlačeno")
 #else
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Tisky")
-  #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Hotovo")
-  #define MSG_INFO_PRINT_TIME               _UxGT("Čas")
-  #define MSG_INFO_PRINT_LONGEST            _UxGT("Nejdelší")
-  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Vytlačeno")
+	#define MSG_INFO_PRINT_COUNT              _UxGT("Tisky")
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("Hotovo")
+	#define MSG_INFO_PRINT_TIME               _UxGT("Čas")
+	#define MSG_INFO_PRINT_LONGEST            _UxGT("Nejdelší")
+	#define MSG_INFO_PRINT_FILAMENT           _UxGT("Vytlačeno")
 #endif
 
 #define MSG_INFO_MIN_TEMP                   _UxGT("Teplota min")
@@ -314,38 +314,38 @@
 #define MSG_FILAMENT_CHANGE_NOZZLE          _UxGT("  Tryska: ")
 
 #if LCD_HEIGHT >= 4
-  // Up to 3 lines allowed
-  #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Čekejte prosím")
-  #define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("na zahájení")
-  #define MSG_FILAMENT_CHANGE_INIT_3          _UxGT("výměny filamentu")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Čekejte prosím")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("na vysunuti")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_3        _UxGT("filamentu")
-  #define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Vložte filament")
-  #define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("a stiskněte")
-  #define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("tlačítko...")
-  #define MSG_FILAMENT_CHANGE_HEAT_1          _UxGT("Klikněte pro")
-  #define MSG_FILAMENT_CHANGE_HEAT_2          _UxGT("nahřátí trysky")
-  #define MSG_FILAMENT_CHANGE_HEATING_1       _UxGT("Čekejte prosím")
-  #define MSG_FILAMENT_CHANGE_HEATING_2       _UxGT("na nahřátí tr.")
-  #define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Čekejte prosím")
-  #define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("na zavedení")
-  #define MSG_FILAMENT_CHANGE_LOAD_3          _UxGT("filamentu")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Čekejte prosím")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("na vytlačení")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_3       _UxGT("filamentu")
-  #define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Čekejte prosím")
-  #define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("na pokračování")
-  #define MSG_FILAMENT_CHANGE_RESUME_3        _UxGT("tisku")
+	// Up to 3 lines allowed
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Čekejte prosím")
+	#define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("na zahájení")
+	#define MSG_FILAMENT_CHANGE_INIT_3          _UxGT("výměny filamentu")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Čekejte prosím")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("na vysunuti")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_3        _UxGT("filamentu")
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Vložte filament")
+	#define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("a stiskněte")
+	#define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("tlačítko...")
+	#define MSG_FILAMENT_CHANGE_HEAT_1          _UxGT("Klikněte pro")
+	#define MSG_FILAMENT_CHANGE_HEAT_2          _UxGT("nahřátí trysky")
+	#define MSG_FILAMENT_CHANGE_HEATING_1       _UxGT("Čekejte prosím")
+	#define MSG_FILAMENT_CHANGE_HEATING_2       _UxGT("na nahřátí tr.")
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Čekejte prosím")
+	#define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("na zavedení")
+	#define MSG_FILAMENT_CHANGE_LOAD_3          _UxGT("filamentu")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Čekejte prosím")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("na vytlačení")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_3       _UxGT("filamentu")
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Čekejte prosím")
+	#define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("na pokračování")
+	#define MSG_FILAMENT_CHANGE_RESUME_3        _UxGT("tisku")
 #else // LCD_HEIGHT < 4
-  // Up to 2 lines allowed
-  #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Čekejte...")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Vysouvání...")
-  #define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Vložte, klikněte")
-  #define MSG_FILAMENT_CHANGE_HEATING_1       _UxGT("Nahřívání...")
-  #define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Zavádění...")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Vytlačování...")
-  #define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Pokračování...")
+	// Up to 2 lines allowed
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Čekejte...")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Vysouvání...")
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Vložte, klikněte")
+	#define MSG_FILAMENT_CHANGE_HEATING_1       _UxGT("Nahřívání...")
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Zavádění...")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Vytlačování...")
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Pokračování...")
 #endif // LCD_HEIGHT < 4
 
 #endif // LANGUAGE_CZ_UTF_H

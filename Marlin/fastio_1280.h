@@ -1,32 +1,32 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * Pin mapping for the 1280 and 2560
- *
- *   1280     22 23 24 25 26 27 28 29 53 52 51 50 10 11 12 13 37 36 35 34 33 32 31 30 21 20 19 18 81 82 83 38 00 01 78 05 02 03 79 80 54 55 56 57 58 59 60 61 41 40 39 71 70 04 17 16 84 06 07 08 09 85 15 14 72 73 75 76 77 74 62 63 64 65 66 67 68 69 49 48 47 46 45 44 43 42
- *   Port     A0 A1 A2 A3 A4 A5 A6 A7 B0 B1 B2 B3 B4 B5 B6 B7 C0 C1 C2 C3 C4 C5 C6 C7 D0 D1 D2 D3 D4 D5 D6 D7 E0 E1 E2 E3 E4 E5 E6 E7 F0 F1 F2 F3 F4 F5 F6 F7 G0 G1 G2 G3 G4 G5 H0 H1 H2 H3 H4 H5 H6 H7 J0 J1 J2 J3 J4 J5 J6 J7 K0 K1 K2 K3 K4 K5 K6 K7 L0 L1 L2 L3 L4 L5 L6 L7
- *   Marlin   00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85
- */
+    Pin mapping for the 1280 and 2560
+
+     1280     22 23 24 25 26 27 28 29 53 52 51 50 10 11 12 13 37 36 35 34 33 32 31 30 21 20 19 18 81 82 83 38 00 01 78 05 02 03 79 80 54 55 56 57 58 59 60 61 41 40 39 71 70 04 17 16 84 06 07 08 09 85 15 14 72 73 75 76 77 74 62 63 64 65 66 67 68 69 49 48 47 46 45 44 43 42
+     Port     A0 A1 A2 A3 A4 A5 A6 A7 B0 B1 B2 B3 B4 B5 B6 B7 C0 C1 C2 C3 C4 C5 C6 C7 D0 D1 D2 D3 D4 D5 D6 D7 E0 E1 E2 E3 E4 E5 E6 E7 F0 F1 F2 F3 F4 F5 F6 F7 G0 G1 G2 G3 G4 G5 H0 H1 H2 H3 H4 H5 H6 H7 J0 J1 J2 J3 J4 J5 J6 J7 K0 K1 K2 K3 K4 K5 K6 K7 L0 L1 L2 L3 L4 L5 L6 L7
+     Marlin   00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85
+*/
 
 #ifndef _FASTIO_1280
 #define _FASTIO_1280

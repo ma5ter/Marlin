@@ -1,31 +1,31 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * Arduino Sd2Card Library
- * Copyright (C) 2009 by William Greiman
- *
- * This file is part of the Arduino Sd2Card Library
- */
+    Arduino Sd2Card Library
+    Copyright (C) 2009 by William Greiman
+
+    This file is part of the Arduino Sd2Card Library
+*/
 
 #include "Marlin.h"
 #if ENABLED(SDSUPPORT)
@@ -33,9 +33,9 @@
 #ifndef Sd2Card_h
 #define Sd2Card_h
 /**
- * \file
- * \brief Sd2Card class for V2 SD/SDHC cards
- */
+    \file
+    \brief Sd2Card class for V2 SD/SDHC cards
+*/
 #include "SdFatConfig.h"
 #include "SdInfo.h"
 //------------------------------------------------------------------------------
@@ -122,128 +122,146 @@ uint8_t const SD_CARD_TYPE_SD2  = 2;
 /** High Capacity SD card */
 uint8_t const SD_CARD_TYPE_SDHC = 3;
 /**
- * define SOFTWARE_SPI to use bit-bang SPI
- */
+    define SOFTWARE_SPI to use bit-bang SPI
+*/
 //------------------------------------------------------------------------------
 #if MEGA_SOFT_SPI
-  #define SOFTWARE_SPI
+	#define SOFTWARE_SPI
 #elif USE_SOFTWARE_SPI
-  #define SOFTWARE_SPI
+	#define SOFTWARE_SPI
 #endif  // MEGA_SOFT_SPI
 //------------------------------------------------------------------------------
 // SPI pin definitions - do not edit here - change in SdFatConfig.h
 //
 #if DISABLED(SOFTWARE_SPI)
-  // hardware pin defs
-  /** The default chip select pin for the SD card is SS. */
-  #define SD_CHIP_SELECT_PIN SS_PIN
-  // The following three pins must not be redefined for hardware SPI.
-  /** SPI Master Out Slave In pin */
-  #define SPI_MOSI_PIN MOSI_PIN
-  /** SPI Master In Slave Out pin */
-  #define SPI_MISO_PIN MISO_PIN
-  /** SPI Clock pin */
-  #define SPI_SCK_PIN SCK_PIN
+	// hardware pin defs
+	/** The default chip select pin for the SD card is SS. */
+	#define SD_CHIP_SELECT_PIN SS_PIN
+	// The following three pins must not be redefined for hardware SPI.
+	/** SPI Master Out Slave In pin */
+	#define SPI_MOSI_PIN MOSI_PIN
+	/** SPI Master In Slave Out pin */
+	#define SPI_MISO_PIN MISO_PIN
+	/** SPI Clock pin */
+	#define SPI_SCK_PIN SCK_PIN
 
 #else  // SOFTWARE_SPI
 
-  /** SPI chip select pin */
-  #define SD_CHIP_SELECT_PIN SOFT_SPI_CS_PIN
-  /** SPI Master Out Slave In pin */
-  #define SPI_MOSI_PIN SOFT_SPI_MOSI_PIN
-  /** SPI Master In Slave Out pin */
-  #define SPI_MISO_PIN SOFT_SPI_MISO_PIN
-  /** SPI Clock pin */
-  #define SPI_SCK_PIN SOFT_SPI_SCK_PIN
+	/** SPI chip select pin */
+	#define SD_CHIP_SELECT_PIN SOFT_SPI_CS_PIN
+	/** SPI Master Out Slave In pin */
+	#define SPI_MOSI_PIN SOFT_SPI_MOSI_PIN
+	/** SPI Master In Slave Out pin */
+	#define SPI_MISO_PIN SOFT_SPI_MISO_PIN
+	/** SPI Clock pin */
+	#define SPI_SCK_PIN SOFT_SPI_SCK_PIN
 #endif  // SOFTWARE_SPI
 //------------------------------------------------------------------------------
 /**
- * \class Sd2Card
- * \brief Raw access to SD and SDHC flash memory cards.
- */
+    \class Sd2Card
+    \brief Raw access to SD and SDHC flash memory cards.
+*/
 class Sd2Card {
- public:
-  /** Construct an instance of Sd2Card. */
-  Sd2Card() : errorCode_(SD_CARD_ERROR_INIT_NOT_CALLED), type_(0) {}
-  uint32_t cardSize();
-  bool erase(uint32_t firstBlock, uint32_t lastBlock);
-  bool eraseSingleBlockEnable();
-  /**
-   *  Set SD error code.
-   *  \param[in] code value for error code.
-   */
-  void error(uint8_t code) {errorCode_ = code;}
-  /**
-   * \return error code for last error. See Sd2Card.h for a list of error codes.
-   */
-  int errorCode() const {return errorCode_;}
-  /** \return error data for last error. */
-  int errorData() const {return status_;}
-  /**
-   * Initialize an SD flash memory card with default clock rate and chip
-   * select pin.  See sd2Card::init(uint8_t sckRateID, uint8_t chipSelectPin).
-   *
-   * \return true for success or false for failure.
-   */
-  bool init(uint8_t sckRateID = SPI_FULL_SPEED,
-            uint8_t chipSelectPin = SD_CHIP_SELECT_PIN);
-  bool readBlock(uint32_t block, uint8_t* dst);
-  /**
-   * Read a card's CID register. The CID contains card identification
-   * information such as Manufacturer ID, Product name, Product serial
-   * number and Manufacturing date.
-   *
-   * \param[out] cid pointer to area for returned data.
-   *
-   * \return true for success or false for failure.
-   */
-  bool readCID(cid_t* cid) {
-    return readRegister(CMD10, cid);
-  }
-  /**
-   * Read a card's CSD register. The CSD contains Card-Specific Data that
-   * provides information regarding access to the card's contents.
-   *
-   * \param[out] csd pointer to area for returned data.
-   *
-   * \return true for success or false for failure.
-   */
-  bool readCSD(csd_t* csd) {
-    return readRegister(CMD9, csd);
-  }
-  bool readData(uint8_t* dst);
-  bool readStart(uint32_t blockNumber);
-  bool readStop();
-  bool setSckRate(uint8_t sckRateID);
-  /** Return the card type: SD V1, SD V2 or SDHC
-   * \return 0 - SD V1, 1 - SD V2, or 3 - SDHC.
-   */
-  int type() const {return type_;}
-  bool writeBlock(uint32_t blockNumber, const uint8_t* src);
-  bool writeData(const uint8_t* src);
-  bool writeStart(uint32_t blockNumber, uint32_t eraseCount);
-  bool writeStop();
- private:
-  //----------------------------------------------------------------------------
-  uint8_t chipSelectPin_;
-  uint8_t errorCode_;
-  uint8_t spiRate_;
-  uint8_t status_;
-  uint8_t type_;
-  // private functions
-  uint8_t cardAcmd(uint8_t cmd, uint32_t arg) {
-    cardCommand(CMD55, 0);
-    return cardCommand(cmd, arg);
-  }
-  uint8_t cardCommand(uint8_t cmd, uint32_t arg);
+public:
+	/** Construct an instance of Sd2Card. */
+	Sd2Card() : errorCode_(SD_CARD_ERROR_INIT_NOT_CALLED), type_(0) {}
+	uint32_t cardSize();
+	bool erase(uint32_t firstBlock, uint32_t lastBlock);
+	bool eraseSingleBlockEnable();
+	/**
+	    Set SD error code.
+	    \param[in] code value for error code.
+	*/
+	void error(uint8_t code)
+	{
+		errorCode_ = code;
+	}
+	/**
+	    \return error code for last error. See Sd2Card.h for a list of error codes.
+	*/
+	int errorCode() const
+	{
+		return errorCode_;
+	}
+	/** \return error data for last error. */
+	int errorData() const
+	{
+		return status_;
+	}
+	/**
+	    Initialize an SD flash memory card with default clock rate and chip
+	    select pin.  See sd2Card::init(uint8_t sckRateID, uint8_t chipSelectPin).
 
-  bool readData(uint8_t* dst, uint16_t count);
-  bool readRegister(uint8_t cmd, void* buf);
-  void chipSelectHigh();
-  void chipSelectLow();
-  void type(uint8_t value) {type_ = value;}
-  bool waitNotBusy(uint16_t timeoutMillis);
-  bool writeData(uint8_t token, const uint8_t* src);
+	    \return true for success or false for failure.
+	*/
+	bool init(uint8_t sckRateID = SPI_FULL_SPEED,
+			  uint8_t chipSelectPin = SD_CHIP_SELECT_PIN);
+	bool readBlock(uint32_t block, uint8_t *dst);
+	/**
+	    Read a card's CID register. The CID contains card identification
+	    information such as Manufacturer ID, Product name, Product serial
+	    number and Manufacturing date.
+
+	    \param[out] cid pointer to area for returned data.
+
+	    \return true for success or false for failure.
+	*/
+	bool readCID(cid_t *cid)
+	{
+		return readRegister(CMD10, cid);
+	}
+	/**
+	    Read a card's CSD register. The CSD contains Card-Specific Data that
+	    provides information regarding access to the card's contents.
+
+	    \param[out] csd pointer to area for returned data.
+
+	    \return true for success or false for failure.
+	*/
+	bool readCSD(csd_t *csd)
+	{
+		return readRegister(CMD9, csd);
+	}
+	bool readData(uint8_t *dst);
+	bool readStart(uint32_t blockNumber);
+	bool readStop();
+	bool setSckRate(uint8_t sckRateID);
+	/** Return the card type: SD V1, SD V2 or SDHC
+	    \return 0 - SD V1, 1 - SD V2, or 3 - SDHC.
+	*/
+	int type() const
+	{
+		return type_;
+	}
+	bool writeBlock(uint32_t blockNumber, const uint8_t *src);
+	bool writeData(const uint8_t *src);
+	bool writeStart(uint32_t blockNumber, uint32_t eraseCount);
+	bool writeStop();
+private:
+	//----------------------------------------------------------------------------
+	uint8_t chipSelectPin_;
+	uint8_t errorCode_;
+	uint8_t spiRate_;
+	uint8_t status_;
+	uint8_t type_;
+	// private functions
+	uint8_t cardAcmd(uint8_t cmd, uint32_t arg)
+	{
+		cardCommand(CMD55, 0);
+		return cardCommand(cmd, arg);
+	}
+	uint8_t cardCommand(uint8_t cmd, uint32_t arg);
+
+	bool readData(uint8_t *dst, uint16_t count);
+	bool readRegister(uint8_t cmd, void *buf);
+	void chipSelectHigh();
+	void chipSelectLow();
+	void type(uint8_t value)
+	{
+		type_ = value;
+	}
+	bool waitNotBusy(uint16_t timeoutMillis);
+	bool writeData(uint8_t token, const uint8_t *src);
 };
 #endif  // Sd2Card_h
 

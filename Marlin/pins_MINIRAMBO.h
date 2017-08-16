@@ -1,31 +1,31 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * Mini-Rambo pin assignments
- */
+    Mini-Rambo pin assignments
+*/
 
 #ifndef __AVR_ATmega2560__
-  #error "Oops!  Make sure you have 'Arduino Mega 2560 or Rambo' selected from the 'Tools -> Boards' menu."
+	#error "Oops!  Make sure you have 'Arduino Mega 2560 or Rambo' selected from the 'Tools -> Boards' menu."
 #endif
 
 #define BOARD_NAME          "Mini Rambo"
@@ -45,7 +45,7 @@
 // Z Probe (when not Z_MIN_PIN)
 //
 #ifndef Z_MIN_PROBE_PIN
-  #define Z_MIN_PROBE_PIN  23
+	#define Z_MIN_PROBE_PIN  23
 #endif
 
 //
@@ -86,7 +86,7 @@
 #define MOTOR_CURRENT_PWM_E_PIN  44
 // Motor current PWM conversion, PWM value = MotorCurrentSetting * 255 / range
 #ifndef MOTOR_CURRENT_PWM_RANGE
-  #define MOTOR_CURRENT_PWM_RANGE 2000
+	#define MOTOR_CURRENT_PWM_RANGE 2000
 #endif
 #define DEFAULT_PWM_MOTOR_CURRENT  {1300, 1300, 1250}
 
@@ -133,28 +133,28 @@
 //
 // LCD / Controller
 //
-#if ENABLED(ULTRA_LCD)
+#if ENABLED(LCDKIND_CHARACTER)
 
-  #define KILL_PIN         32
+	#define KILL_PIN         32
 
-  #if ENABLED(NEWPANEL)
+	#if ENABLED(NEWPANEL)
 
-    // Beeper on AUX-4
-    #define BEEPER_PIN     84
+		// Beeper on AUX-4
+		#define BEEPER_PIN     84
 
-    #define LCD_PINS_RS    82
-    #define LCD_PINS_ENABLE 18
-    #define LCD_PINS_D4    19
-    #define LCD_PINS_D5    70
-    #define LCD_PINS_D6    85
-    #define LCD_PINS_D7    71
+		#define LCD_PINS_RS    82
+		#define LCD_PINS_ENABLE 18
+		#define LCD_PINS_D4    19
+		#define LCD_PINS_D5    70
+		#define LCD_PINS_D6    85
+		#define LCD_PINS_D7    71
 
-    // buttons are directly attached using AUX-2
-    #define BTN_EN1        14
-    #define BTN_EN2        72
-    #define BTN_ENC         9  // the click
+		// buttons are directly attached using AUX-2
+		#define BTN_EN1        14
+		#define BTN_EN2        72
+		#define BTN_ENC         9  // the click
 
-    #define SD_DETECT_PIN  15
+		#define SD_DETECT_PIN  15
 
-  #endif // NEWPANEL
-#endif // ULTRA_LCD
+	#endif // NEWPANEL
+#endif // LCDKIND_CHARACTER

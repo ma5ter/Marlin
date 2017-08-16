@@ -1,32 +1,32 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * Ukrainian
- *
- * LCD Menu Messages
- * See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
- *
- */
+    Ukrainian
+
+    LCD Menu Messages
+    See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
+
+*/
 #ifndef LANGUAGE_UK_H
 #define LANGUAGE_UK_H
 
@@ -183,17 +183,17 @@
 #define MSG_CASE_LIGHT                      _UxGT("Підсвітка")
 
 #if LCD_WIDTH >= 20
-  #define MSG_INFO_PRINT_COUNT              _UxGT("К-сть друків")
-  #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Завершено")
-  #define MSG_INFO_PRINT_TIME               _UxGT("Весь час друку")
-  #define MSG_INFO_PRINT_LONGEST            _UxGT("Найдовший час")
-  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Екструдовано")
+	#define MSG_INFO_PRINT_COUNT              _UxGT("К-сть друків")
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("Завершено")
+	#define MSG_INFO_PRINT_TIME               _UxGT("Весь час друку")
+	#define MSG_INFO_PRINT_LONGEST            _UxGT("Найдовший час")
+	#define MSG_INFO_PRINT_FILAMENT           _UxGT("Екструдовано")
 #else
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Друків")
-  #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Завершено")
-  #define MSG_INFO_PRINT_TIME               _UxGT("Загалом")
-  #define MSG_INFO_PRINT_LONGEST            _UxGT("Найдовший")
-  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Ексдруд.")
+	#define MSG_INFO_PRINT_COUNT              _UxGT("Друків")
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("Завершено")
+	#define MSG_INFO_PRINT_TIME               _UxGT("Загалом")
+	#define MSG_INFO_PRINT_LONGEST            _UxGT("Найдовший")
+	#define MSG_INFO_PRINT_FILAMENT           _UxGT("Ексдруд.")
 #endif
 
 #define MSG_INFO_MIN_TEMP                   _UxGT("Мін Темп.")
@@ -210,31 +210,31 @@
 #define MSG_FILAMENT_CHANGE_OPTION_RESUME   _UxGT("Відновити друк")
 
 #if LCD_HEIGHT >= 4
-  // Up to 3 lines allowed
-  #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Зачекайте на")
-  #define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("початок заміни")
-  #define MSG_FILAMENT_CHANGE_INIT_3          _UxGT("волокна")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Зачекайте на")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("вивід волокна")
-  #define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Вставте волокно")
-  #define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("та натисніть для")
-  #define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("продовження...")
-  #define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Зачекайте на")
-  #define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("ввід волокна")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Зачекайте на")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("екструзію")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_3       _UxGT("волокна")
-  #define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Зачекайте на")
-  #define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("відновлення")
-  #define MSG_FILAMENT_CHANGE_RESUME_3        _UxGT("друку")
+	// Up to 3 lines allowed
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Зачекайте на")
+	#define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("початок заміни")
+	#define MSG_FILAMENT_CHANGE_INIT_3          _UxGT("волокна")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Зачекайте на")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("вивід волокна")
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Вставте волокно")
+	#define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("та натисніть для")
+	#define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("продовження...")
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Зачекайте на")
+	#define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("ввід волокна")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Зачекайте на")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("екструзію")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_3       _UxGT("волокна")
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Зачекайте на")
+	#define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("відновлення")
+	#define MSG_FILAMENT_CHANGE_RESUME_3        _UxGT("друку")
 #else // LCD_HEIGHT < 4
-  // Up to 2 lines allowed
-  #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Зачекайте...")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Вивід...")
-  #define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Вставте і нат.")
-  #define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Ввід...")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Екструзія...")
-  #define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Відновлення...")
+	// Up to 2 lines allowed
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Зачекайте...")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Вивід...")
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Вставте і нат.")
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Ввід...")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Екструзія...")
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Відновлення...")
 #endif // LCD_HEIGHT < 4
 
 #endif // LANGUAGE_UK_H

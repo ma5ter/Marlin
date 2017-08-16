@@ -1,32 +1,32 @@
 /**
- * Marlin 3D Printer Firmware
- * Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
- *
- * Based on Sprinter and grbl.
- * Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
- */
+    Marlin 3D Printer Firmware
+    Copyright (C) 2016 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+
+    Based on Sprinter and grbl.
+    Copyright (C) 2011 Camiel Gubbels / Erik van der Zalm
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+*/
 
 /**
- * Catalan
- *
- * LCD Menu Messages
- * See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
- *
- */
+    Catalan
+
+    LCD Menu Messages
+    See also https://github.com/MarlinFirmware/Marlin/wiki/LCD-Language
+
+*/
 #ifndef LANGUAGE_CA_H
 #define LANGUAGE_CA_H
 
@@ -199,17 +199,17 @@
 #define MSG_CASE_LIGHT                      _UxGT("Llum")
 
 #if LCD_WIDTH >= 20
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Total impressions")
-  #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Acabades")
-  #define MSG_INFO_PRINT_TIME               _UxGT("Temps imprimint")
-  #define MSG_INFO_PRINT_LONGEST            _UxGT("Treball mes llarg")
-  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Total extrudit")
+	#define MSG_INFO_PRINT_COUNT              _UxGT("Total impressions")
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("Acabades")
+	#define MSG_INFO_PRINT_TIME               _UxGT("Temps imprimint")
+	#define MSG_INFO_PRINT_LONGEST            _UxGT("Treball mes llarg")
+	#define MSG_INFO_PRINT_FILAMENT           _UxGT("Total extrudit")
 #else
-  #define MSG_INFO_PRINT_COUNT              _UxGT("Impressions")
-  #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Acabades")
-  #define MSG_INFO_PRINT_TIME               _UxGT("Total")
-  #define MSG_INFO_PRINT_LONGEST            _UxGT("Mes llarg")
-  #define MSG_INFO_PRINT_FILAMENT           _UxGT("Extrudit")
+	#define MSG_INFO_PRINT_COUNT              _UxGT("Impressions")
+	#define MSG_INFO_COMPLETED_PRINTS         _UxGT("Acabades")
+	#define MSG_INFO_PRINT_TIME               _UxGT("Total")
+	#define MSG_INFO_PRINT_LONGEST            _UxGT("Mes llarg")
+	#define MSG_INFO_PRINT_FILAMENT           _UxGT("Extrudit")
 #endif
 
 #define MSG_INFO_MIN_TEMP                   _UxGT("Temp. mínima")
@@ -230,32 +230,32 @@
 //                        ...or up to 2 lines on a 3-line display
 //
 #if LCD_HEIGHT >= 4
-  #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Esperant per")
-  #define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("iniciar el canvi")
-  #define MSG_FILAMENT_CHANGE_INIT_3          _UxGT("de filament")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Esperant per")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("treure filament")
-  #define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Poseu filament")
-  #define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("i premeu el boto")
-  #define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("per continuar...")
-  #define MSG_FILAMENT_CHANGE_HEAT_1          _UxGT("Premeu boto per")
-  #define MSG_FILAMENT_CHANGE_HEAT_2          _UxGT("escalfar nozzle.")
-  #define MSG_FILAMENT_CHANGE_HEATING_1       _UxGT("Escalfant nozzle")
-  #define MSG_FILAMENT_CHANGE_HEATING_2       _UxGT("Espereu...")
-  #define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Esperant carrega")
-  #define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("de filament")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Esperant per")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("extreure filament")
-  #define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Esperant per")
-  #define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("reprendre")
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Esperant per")
+	#define MSG_FILAMENT_CHANGE_INIT_2          _UxGT("iniciar el canvi")
+	#define MSG_FILAMENT_CHANGE_INIT_3          _UxGT("de filament")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Esperant per")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_2        _UxGT("treure filament")
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Poseu filament")
+	#define MSG_FILAMENT_CHANGE_INSERT_2        _UxGT("i premeu el boto")
+	#define MSG_FILAMENT_CHANGE_INSERT_3        _UxGT("per continuar...")
+	#define MSG_FILAMENT_CHANGE_HEAT_1          _UxGT("Premeu boto per")
+	#define MSG_FILAMENT_CHANGE_HEAT_2          _UxGT("escalfar nozzle.")
+	#define MSG_FILAMENT_CHANGE_HEATING_1       _UxGT("Escalfant nozzle")
+	#define MSG_FILAMENT_CHANGE_HEATING_2       _UxGT("Espereu...")
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Esperant carrega")
+	#define MSG_FILAMENT_CHANGE_LOAD_2          _UxGT("de filament")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Esperant per")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_2       _UxGT("extreure filament")
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Esperant per")
+	#define MSG_FILAMENT_CHANGE_RESUME_2        _UxGT("reprendre")
 #else // LCD_HEIGHT < 4
-  #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Espereu...")
-  #define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Expulsant...")
-  #define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Insereix i prem")
-  #define MSG_FILAMENT_CHANGE_HEATING_1       _UxGT("Escalfant...")
-  #define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Carregant...")
-  #define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Extrudint...")
-  #define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Reprenent...")
+	#define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Espereu...")
+	#define MSG_FILAMENT_CHANGE_UNLOAD_1        _UxGT("Expulsant...")
+	#define MSG_FILAMENT_CHANGE_INSERT_1        _UxGT("Insereix i prem")
+	#define MSG_FILAMENT_CHANGE_HEATING_1       _UxGT("Escalfant...")
+	#define MSG_FILAMENT_CHANGE_LOAD_1          _UxGT("Carregant...")
+	#define MSG_FILAMENT_CHANGE_EXTRUDE_1       _UxGT("Extrudint...")
+	#define MSG_FILAMENT_CHANGE_RESUME_1        _UxGT("Reprenent...")
 #endif // LCD_HEIGHT < 4
 
 #endif // LANGUAGE_CA_H
