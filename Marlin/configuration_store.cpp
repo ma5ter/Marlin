@@ -106,7 +106,7 @@
     348  M666 Z    z_endstop_adj                    (float)
     ---            dummy data                       (float x11)
 
-    ULTIPANEL:                                       6 bytes
+    USE_CONTROLLER:                                       6 bytes
     396  M145 S0 H lcd_preheat_hotend_temp          (int x2)
     400  M145 S0 B lcd_preheat_bed_temp             (int x2)
     404  M145 S0 F lcd_preheat_fan_speed            (int x2)
@@ -185,7 +185,7 @@ MarlinSettings settings;
 #include "ultralcd.h"
 #include "stepper.h"
 
-#if ENABLED(INCH_MODE_SUPPORT) || (ENABLED(ULTIPANEL) && ENABLED(TEMPERATURE_UNITS_SUPPORT))
+#if ENABLED(INCH_MODE_SUPPORT) || (ENABLED(USE_CONTROLLER) && ENABLED(TEMPERATURE_UNITS_SUPPORT))
 	#include "gcode.h"
 #endif
 
@@ -488,7 +488,7 @@ bool MarlinSettings::save()
 	}
 	#endif
 
-	#if DISABLED(ULTIPANEL)
+	#if DISABLED(USE_CONTROLLER)
 	constexpr int lcd_preheat_hotend_temp[2] = { PREHEAT_1_TEMP_HOTEND, PREHEAT_2_TEMP_HOTEND },
 			lcd_preheat_bed_temp[2] = { PREHEAT_1_TEMP_BED, PREHEAT_2_TEMP_BED },
 									  lcd_preheat_fan_speed[2] = { PREHEAT_1_FAN_SPEED, PREHEAT_2_FAN_SPEED };
@@ -906,7 +906,7 @@ bool MarlinSettings::load()
 		}
 		#endif
 
-		#if DISABLED(ULTIPANEL)
+		#if DISABLED(USE_CONTROLLER)
 		int lcd_preheat_hotend_temp[2], lcd_preheat_bed_temp[2], lcd_preheat_fan_speed[2];
 		#endif
 
@@ -1323,7 +1323,7 @@ void MarlinSettings::reset()
 
 	#endif
 
-	#if ENABLED(ULTIPANEL)
+	#if ENABLED(USE_CONTROLLER)
 	lcd_preheat_hotend_temp[0] = PREHEAT_1_TEMP_HOTEND;
 	lcd_preheat_hotend_temp[1] = PREHEAT_2_TEMP_HOTEND;
 	lcd_preheat_bed_temp[0] = PREHEAT_1_TEMP_BED;
@@ -1476,7 +1476,7 @@ void MarlinSettings::report(bool forReplay)
 	SERIAL_ECHOLNPGM("  G21    ; Units in mm");
 	#endif
 
-	#if ENABLED(ULTIPANEL)
+	#if ENABLED(USE_CONTROLLER)
 
 	// Temperature units - for Ultipanel temperature options
 
@@ -1747,7 +1747,7 @@ void MarlinSettings::report(bool forReplay)
 	SERIAL_ECHOLNPAIR("  M666 Z", LINEAR_UNIT(z_endstop_adj));
 	#endif // DELTA
 
-	#if ENABLED(ULTIPANEL)
+	#if ENABLED(USE_CONTROLLER)
 	if (!forReplay) {
 		CONFIG_ECHO_START;
 		SERIAL_ECHOLNPGM("Material heatup parameters:");
@@ -1759,7 +1759,7 @@ void MarlinSettings::report(bool forReplay)
 		SERIAL_ECHOPAIR(" B", TEMP_UNIT(lcd_preheat_bed_temp[i]));
 		SERIAL_ECHOLNPAIR(" F", lcd_preheat_fan_speed[i]);
 	}
-	#endif // ULTIPANEL
+	#endif // USE_CONTROLLER
 
 	#if HAS_PID_HEATING
 

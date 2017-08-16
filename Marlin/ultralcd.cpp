@@ -97,7 +97,7 @@ uint16_t max_display_update_time = 0;
 	uint8_t driverPercent[XYZE];
 #endif
 
-#if ENABLED(ULTIPANEL)
+#if ENABLED(USE_CONTROLLER)
 
 #ifndef TALL_FONT_CORRECTION
 	#define TALL_FONT_CORRECTION 0
@@ -398,8 +398,8 @@ millis_t lastEncoderMovementMillis = 0;
 bool lcd_clicked, wait_for_unclick;
 volatile uint8_t buttons;
 millis_t next_button_update_ms;
-#if ENABLED(REPRAPWORLD_KEYPAD)
-	volatile uint8_t buttons_reprapworld_keypad;
+#if ENABLED(REPRAPWORLD_KEYPAD) || ENABLED(ADC_KEYPAD)
+	volatile uint8_t keypad_button_mask;
 #endif
 #if ENABLED(LCD_HAS_SLOW_BUTTONS)
 	volatile uint8_t slow_buttons;
@@ -561,7 +561,7 @@ void lcd_goto_previous_menu()
 	}
 }
 
-#endif // ULTIPANEL
+#endif // USE_CONTROLLER
 
 /**
 
@@ -573,7 +573,7 @@ void lcd_goto_previous_menu()
 void lcd_status_screen()
 {
 
-	#if ENABLED(ULTIPANEL)
+	#if ENABLED(USE_CONTROLLER)
 	ENCODER_DIRECTION_NORMAL();
 	ENCODER_RATE_MULTIPLY(false);
 	#endif
@@ -611,7 +611,7 @@ void lcd_status_screen()
 	#endif
 	#endif // LCD_PROGRESS_BAR
 
-	#if ENABLED(ULTIPANEL)
+	#if ENABLED(USE_CONTROLLER)
 
 	if (lcd_clicked) {
 		#if ENABLED(FILAMENT_LCD_DISPLAY) && ENABLED(SDSUPPORT)
@@ -651,7 +651,7 @@ void lcd_status_screen()
 
 	feedrate_percentage = constrain(feedrate_percentage, 10, 999);
 
-	#endif // ULTIPANEL
+	#endif // USE_CONTROLLER
 
 	lcd_implementation_status_screen();
 }
@@ -680,7 +680,7 @@ void kill_screen(const char *lcd_msg)
 	#endif
 }
 
-#if ENABLED(ULTIPANEL)
+#if ENABLED(USE_CONTROLLER)
 
 /**
 
@@ -4582,7 +4582,7 @@ DEFINE_MENU_EDIT_TYPE(uint32_t, long5, ftostr5rj, 0.01);
 inline bool handle_adc_keypad()
 {
 	static uint8_t adc_steps = 0;
-	if (buttons_reprapworld_keypad) {
+	if (keypad_button_mask) {
 		if (adc_steps < 20) {
 			++adc_steps;
 		}
@@ -4590,16 +4590,16 @@ inline bool handle_adc_keypad()
 		lcdDrawUpdate = LCDVIEW_REDRAW_NOW;
 		#if ENABLED(REVERSE_MENU_DIRECTION)
 		if (encoderDirection == -1) { // side effect which signals we are inside a menu
-			if (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_DOWN) {
+			if (keypad_button_mask & EN_KEYPAD_DOWN) {
 				encoderPosition -= ENCODER_STEPS_PER_MENU_ITEM;
 			}
-			else if (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_UP) {
+			else if (keypad_button_mask & EN_KEYPAD_UP) {
 				encoderPosition += ENCODER_STEPS_PER_MENU_ITEM;
 			}
-			else if (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_LEFT) {
+			else if (keypad_button_mask & EN_KEYPAD_LEFT) {
 				menu_action_back();
 			}
-			else if (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_RIGHT) {
+			else if (keypad_button_mask & EN_KEYPAD_RIGHT) {
 				lcd_return_to_status();
 			}
 		}
@@ -4607,18 +4607,18 @@ inline bool handle_adc_keypad()
 		#endif
 		{
 			const int8_t step = adc_steps > 19 ? 100 : adc_steps > 10 ? 10 : 1;
-			if (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_DOWN) {
+			if (keypad_button_mask & EN_KEYPAD_DOWN) {
 				encoderPosition += ENCODER_PULSES_PER_STEP * step;
 			}
-			else if (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_UP) {
+			else if (keypad_button_mask & EN_KEYPAD_UP) {
 				encoderPosition -= ENCODER_PULSES_PER_STEP * step;
 			}
-			else if (buttons_reprapworld_keypad & EN_REPRAPWORLD_KEYPAD_RIGHT) {
+			else if (keypad_button_mask & EN_KEYPAD_RIGHT) {
 				encoderPosition = 0;
 			}
 		}
 		#if ENABLED(ADC_KEYPAD_DEBUG)
-		SERIAL_PROTOCOLLNPAIR("buttons_reprapworld_keypad = ", (uint32_t)buttons_reprapworld_keypad);
+		SERIAL_PROTOCOLLNPAIR("keypad_button_mask = ", (uint32_t)keypad_button_mask);
 		SERIAL_PROTOCOLLNPAIR("encoderPosition = ", (uint32_t)encoderPosition);
 		#endif
 		return true;
@@ -4695,40 +4695,40 @@ inline void handle_reprapworld_keypad()
 	else if (!keypad_debounce) {
 		keypad_debounce = 2;
 
-		if (REPRAPWORLD_KEYPAD_MOVE_MENU) {
+		if (KEYPAD_MOVE_MENU) {
 			reprapworld_keypad_move_menu();
 		}
 
 		#if DISABLED(DELTA) && Z_HOME_DIR == -1
-		if (REPRAPWORLD_KEYPAD_MOVE_Z_UP) {
+		if (KEYPAD_MOVE_Z_UP) {
 			reprapworld_keypad_move_z_up();
 		}
 		#endif
 
 		if (axis_homed[X_AXIS] && axis_homed[Y_AXIS] && axis_homed[Z_AXIS]) {
 			#if ENABLED(DELTA) || Z_HOME_DIR != -1
-			if (REPRAPWORLD_KEYPAD_MOVE_Z_UP) {
+			if (KEYPAD_MOVE_Z_UP) {
 				reprapworld_keypad_move_z_up();
 			}
 			#endif
-			if (REPRAPWORLD_KEYPAD_MOVE_Z_DOWN) {
+			if (KEYPAD_MOVE_Z_DOWN) {
 				reprapworld_keypad_move_z_down();
 			}
-			if (REPRAPWORLD_KEYPAD_MOVE_X_LEFT) {
+			if (KEYPAD_MOVE_X_LEFT) {
 				reprapworld_keypad_move_x_left();
 			}
-			if (REPRAPWORLD_KEYPAD_MOVE_X_RIGHT) {
+			if (KEYPAD_MOVE_X_RIGHT) {
 				reprapworld_keypad_move_x_right();
 			}
-			if (REPRAPWORLD_KEYPAD_MOVE_Y_DOWN) {
+			if (KEYPAD_MOVE_Y_DOWN) {
 				reprapworld_keypad_move_y_down();
 			}
-			if (REPRAPWORLD_KEYPAD_MOVE_Y_UP) {
+			if (KEYPAD_MOVE_Y_UP) {
 				reprapworld_keypad_move_y_up();
 			}
 		}
 		else {
-			if (REPRAPWORLD_KEYPAD_MOVE_HOME) {
+			if (KEYPAD_MOVE_HOME) {
 				reprapworld_keypad_move_home();
 			}
 		}
@@ -4792,7 +4792,7 @@ void menu_action_setting_edit_callback_bool(const char *pstr, bool *ptr, screenF
 	(*callback)();
 }
 
-#endif // ULTIPANEL
+#endif // USE_CONTROLLER
 
 void lcd_init()
 {
@@ -4860,7 +4860,7 @@ void lcd_init()
 
 	lcd_buttons_update();
 
-	#if ENABLED(ULTIPANEL)
+	#if ENABLED(USE_CONTROLLER)
 	encoderDiff = 0;
 	#endif
 }
@@ -4936,7 +4936,7 @@ bool lcd_blink()
 void lcd_update()
 {
 
-	#if ENABLED(ULTIPANEL)
+	#if ENABLED(USE_CONTROLLER)
 	static millis_t return_to_status_ms = 0;
 	manage_manual_move();
 
@@ -5004,7 +5004,7 @@ void lcd_update()
 		lcd_implementation_update_indicators();
 		#endif
 
-		#if ENABLED(ULTIPANEL)
+		#if ENABLED(USE_CONTROLLER)
 
 		#if ENABLED(LCD_HAS_SLOW_BUTTONS)
 		slow_buttons = lcd_implementation_read_slow_buttons(); // buttons which take too long to read in interrupt context
@@ -5064,13 +5064,13 @@ void lcd_update()
 			return_to_status_ms = ms + LCD_TIMEOUT_TO_STATUS;
 			lcdDrawUpdate = LCDVIEW_REDRAW_NOW;
 		}
-		#endif // ULTIPANEL
+		#endif // USE_CONTROLLER
 
 		// We arrive here every ~100ms when idling often enough.
 		// Instead of tracking the changes simply redraw the Info Screen ~1 time a second.
 		static int8_t lcd_status_update_delay = 1; // first update one loop delayed
 		if (
-		#if ENABLED(ULTIPANEL)
+		#if ENABLED(USE_CONTROLLER)
 			currentScreen == lcd_status_screen &&
 		#endif
 			!lcd_status_update_delay--
@@ -5111,10 +5111,10 @@ void lcd_update()
 			}
 
 			#if ENABLED(ADC_KEYPAD)
-			buttons_reprapworld_keypad = 0;
+			keypad_button_mask = 0;
 			#endif
 
-			#if ENABLED(ULTIPANEL)
+			#if ENABLED(USE_CONTROLLER)
 #define CURRENTSCREEN() (*currentScreen)(), lcd_clicked = false
 			#else
 #define CURRENTSCREEN() lcd_status_screen()
@@ -5138,7 +5138,7 @@ void lcd_update()
 			NOLESS(max_display_update_time, millis() - ms);
 		}
 
-		#if ENABLED(ULTIPANEL)
+		#if ENABLED(USE_CONTROLLER)
 
 		// Return to Status Screen after a timeout
 		if (currentScreen == lcd_status_screen || defer_return_to_status) {
@@ -5148,7 +5148,7 @@ void lcd_update()
 			lcd_return_to_status();
 		}
 
-		#endif // ULTIPANEL
+		#endif // USE_CONTROLLER
 
 		#if ENABLED(LCDKIND_GRAPHIC)
 		if (!drawing_screen)
@@ -5270,7 +5270,7 @@ void lcd_status_printf_P(const uint8_t level, const char *const fmt, ...)
 void lcd_setalertstatusPGM(const char *const message)
 {
 	lcd_setstatusPGM(message, 1);
-	#if ENABLED(ULTIPANEL)
+	#if ENABLED(USE_CONTROLLER)
 	lcd_return_to_status();
 	#endif
 }
@@ -5290,7 +5290,7 @@ void set_lcd_contrast(const uint16_t value)
 
 #endif
 
-#if ENABLED(ULTIPANEL)
+#if ENABLED(USE_CONTROLLER)
 
 /**
     Setup Rotary Encoder Bit Values (for two pin encoders to indicate movement)
@@ -5403,16 +5403,16 @@ void lcd_buttons_update()
 
 		uint8_t newbutton_reprapworld_keypad = 0;
 		buttons = 0;
-		if (buttons_reprapworld_keypad == 0) {
+		if (keypad_button_mask == 0) {
 			newbutton_reprapworld_keypad = get_ADC_keyValue();
 			if (WITHIN(newbutton_reprapworld_keypad, 1, 8)) {
-				buttons_reprapworld_keypad = _BV(newbutton_reprapworld_keypad - 1);
+				keypad_button_mask = _BV(newbutton_reprapworld_keypad - 1);
 			}
 		}
 
 		#elif ENABLED(REPRAPWORLD_KEYPAD)
 
-		GET_BUTTON_STATES(buttons_reprapworld_keypad);
+		GET_BUTTON_STATES(keypad_button_mask);
 
 		#endif
 
@@ -5501,7 +5501,7 @@ bool ubl_lcd_clicked()
 
 #endif
 
-#endif // ULTIPANEL
+#endif // USE_CONTROLLER
 
 #if ENABLED(ADC_KEYPAD)
 
@@ -5512,14 +5512,14 @@ typedef struct {
 
 static const _stADCKeypadTable_ stADCKeyTable[] PROGMEM = {
 	// VALUE_MIN, VALUE_MAX, KEY
-	{ 4000, 4096, BLEN_REPRAPWORLD_KEYPAD_F1 + 1 },     // F1
-	{ 4000, 4096, BLEN_REPRAPWORLD_KEYPAD_F2 + 1 },     // F2
-	{ 4000, 4096, BLEN_REPRAPWORLD_KEYPAD_F3 + 1 },     // F3
-	{  300,  500, BLEN_REPRAPWORLD_KEYPAD_LEFT + 1 },   // LEFT
-	{ 1900, 2200, BLEN_REPRAPWORLD_KEYPAD_RIGHT + 1 },  // RIGHT
-	{  570,  870, BLEN_REPRAPWORLD_KEYPAD_UP + 1 },     // UP
-	{ 2670, 2870, BLEN_REPRAPWORLD_KEYPAD_DOWN + 1 },   // DOWN
-	{ 1150, 1450, BLEN_REPRAPWORLD_KEYPAD_MIDDLE + 1 }, // ENTER
+	{ 4000, 4096, BLEN_KEYPAD_F1 + 1 },     // F1
+	{ 4000, 4096, BLEN_KEYPAD_F2 + 1 },     // F2
+	{ 4000, 4096, BLEN_KEYPAD_F3 + 1 },     // F3
+	{  300,  500, BLEN_KEYPAD_LEFT + 1 },   // LEFT
+	{ 1900, 2200, BLEN_KEYPAD_RIGHT + 1 },  // RIGHT
+	{  570,  870, BLEN_KEYPAD_UP + 1 },     // UP
+	{ 2670, 2870, BLEN_KEYPAD_DOWN + 1 },   // DOWN
+	{ 1150, 1450, BLEN_KEYPAD_MIDDLE + 1 }, // ENTER
 };
 
 uint8_t get_ADC_keyValue(void)

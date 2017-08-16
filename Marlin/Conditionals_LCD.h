@@ -28,7 +28,12 @@
 #ifndef CONDITIONALS_LCD_H // Get the LCD defines which are needed first
 #define CONDITIONALS_LCD_H
 
-// Helper macro to use old-style config (before refactoring of LCDKIND_CHARACTER to LCDKIND_CHARACTER)
+// Helper macro to use old-style config (before refactoring of ULTIPANEL to USE_CONTROLLER)
+#if ENABLED(ULTIPANEL)
+	#define USE_CONTROLLER 
+	#undef ULTIPANEL
+#endif
+// Helper macro to use old-style config (before refactoring of ULTRA_LCD to LCDKIND_CHARACTER)
 #if ENABLED(ULTRA_LCD)
 	#define LCDKIND_CHARACTER 
 	#undef ULTRA_LCD
@@ -43,12 +48,14 @@
 	#error Choose only one kind of LCD either LCDKIND_CHARACTER (LCDKIND_CHARACTER) or LCDKIND_GRAPHIC (LCDKIND_GRAPHIC)
 #endif
 
+
+
 #define LCD_HAS_DIRECTIONAL_BUTTONS (BUTTON_EXISTS(UP) || BUTTON_EXISTS(DWN) || BUTTON_EXISTS(LFT) || BUTTON_EXISTS(RT))
 
 #if ENABLED(CARTESIO_UI)
 
 	#define LCDKIND_GRAPHIC
-	#define ULTIPANEL
+	#define USE_CONTROLLER
 	#define NEWPANEL
 	#define DEFAULT_LCD_CONTRAST 90
 	#define LCD_CONTRAST_MIN 60
@@ -57,7 +64,7 @@
 #elif ENABLED(MAKRPANEL) || ENABLED(MINIPANEL)
 
 	#define LCDKIND_GRAPHIC
-	#define ULTIPANEL
+	#define USE_CONTROLLER
 	#define NEWPANEL
 	#define DEFAULT_LCD_CONTRAST 17
 
@@ -67,7 +74,7 @@
 	#define REPRAPWORLD_KEYPAD_MOVE_STEP 10.0
 	#define ADC_KEYPAD
 	#define ADC_KEY_NUM 8
-	#define ULTIPANEL
+	#define USE_CONTROLLER
 	// this helps to implement ADC_KEYPAD menus
 	#define ENCODER_STEPS_PER_MENU_ITEM 1
 	#define REVERSE_MENU_DIRECTION
@@ -104,7 +111,7 @@
 #elif ENABLED(OLED_PANEL_TINYBOY2)
 
 	#define U8GLIB_SSD1306
-	#define ULTIPANEL
+	#define USE_CONTROLLER
 	#define NEWPANEL
 	#define REVERSE_ENCODER_DIRECTION
 	#define REVERSE_MENU_DIRECTION
@@ -113,14 +120,14 @@
 
 	#define LCD_I2C_TYPE_PCA8574
 	#define LCD_I2C_ADDRESS 0x27   // I2C Address of the port expander
-	#define ULTIPANEL
+	#define USE_CONTROLLER
 	#define NEWPANEL
 
 #elif ENABLED(REPRAPWORLD_GRAPHICAL_LCD)
 
 	#define LCDKIND_GRAPHIC
 	#define U8GLIB_ST7920
-	#define ULTIPANEL
+	#define USE_CONTROLLER
 	#define NEWPANEL
 
 #endif
@@ -145,13 +152,13 @@
 	|| ENABLED(REPRAP_DISCOUNT_SMART_CONTROLLER) \
 	|| ENABLED(G3D_PANEL)                        \
 	|| ENABLED(RIGIDBOT_PANEL)
-	#define ULTIPANEL
+	#define USE_CONTROLLER
 	#define NEWPANEL
 #endif
 
 #if ENABLED(REPRAPWORLD_KEYPAD)
 	#define NEWPANEL
-	#if ENABLED(ULTIPANEL) && !defined(REPRAPWORLD_KEYPAD_MOVE_STEP)
+	#if ENABLED(USE_CONTROLLER) && !defined(REPRAPWORLD_KEYPAD_MOVE_STEP)
 		#define REPRAPWORLD_KEYPAD_MOVE_STEP 1.0
 	#endif
 #endif
@@ -167,7 +174,7 @@
 
 	#define LCD_I2C_TYPE_PCF8575
 	#define LCD_I2C_ADDRESS 0x27   // I2C Address of the port expander
-	#define ULTIPANEL
+	#define USE_CONTROLLER
 	#define NEWPANEL
 
 #elif ENABLED(LCD_I2C_PANELOLU2)
@@ -177,7 +184,7 @@
 	#define LCD_I2C_TYPE_MCP23017
 	#define LCD_I2C_ADDRESS 0x20 // I2C Address of the port expander
 	#define LCD_USE_I2C_BUZZER //comment out to disable buzzer on LCD
-	#define ULTIPANEL
+	#define USE_CONTROLLER
 	#define NEWPANEL
 
 #elif ENABLED(LCD_I2C_VIKI)
@@ -193,7 +200,7 @@
 	#define LCD_I2C_TYPE_MCP23017
 	#define LCD_I2C_ADDRESS 0x20 // I2C Address of the port expander
 	#define LCD_USE_I2C_BUZZER //comment out to disable buzzer on LCD (requires LiquidTWI2 v1.2.3 or later)
-	#define ULTIPANEL
+	#define USE_CONTROLLER
 	#define NEWPANEL
 
 	#define ENCODER_FEEDRATE_DEADZONE 4
@@ -224,7 +231,7 @@
 
 #if ENABLED(SAV_3DLCD)
 	#define SR_LCD_2W_NL    // Non latching 2 wire shift register
-	#define ULTIPANEL
+	#define USE_CONTROLLER
 	#define NEWPANEL
 #endif
 
@@ -237,7 +244,7 @@
 	#endif
 #endif
 
-#if ENABLED(ULTIPANEL)
+#if ENABLED(USE_CONTROLLER)
 	#define NEWPANEL  //enable this if you have a click-encoder panel
 	#define LCDKIND_CHARACTER
 	#ifndef LCD_WIDTH

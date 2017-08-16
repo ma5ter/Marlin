@@ -34,7 +34,7 @@
 #if ENABLED(AUTO_BED_LEVELING_UBL)
 	#include "ubl.h"
 
-	#if ENABLED(ULTIPANEL)
+	#if ENABLED(USE_CONTROLLER)
 		#define ULTRA_X_PIXELS_PER_CHAR    5
 		#define ULTRA_Y_PIXELS_PER_CHAR    8
 		#define ULTRA_COLUMNS_FOR_MESH_MAP 7
@@ -58,7 +58,7 @@ extern volatile uint8_t buttons;  //an extended version of the last checked butt
 // macro name. The mapping is independent of whether the button is directly connected or
 // via a shift/i2c register.
 
-#if ENABLED(ULTIPANEL)
+#if ENABLED(USE_CONTROLLER)
 
 	//
 	// Setup other button mappings of each panel
@@ -102,7 +102,7 @@ extern volatile uint8_t buttons;  //an extended version of the last checked butt
 
 		#endif
 
-	#elif DISABLED(NEWPANEL) // old style ULTIPANEL
+	#elif DISABLED(NEWPANEL) // old style USE_CONTROLLER
 		// Shift register bits correspond to buttons:
 		#define BL_LE 7   // Left
 		#define BL_UP 6   // Up
@@ -119,7 +119,7 @@ extern volatile uint8_t buttons;  //an extended version of the last checked butt
 		#define LCD_CLICKED ((buttons & B_MI) || (buttons & B_ST))
 	#endif
 
-#endif // ULTIPANEL
+#endif // USE_CONTROLLER
 
 ////////////////////////////////////
 // Create LCD class instance and chipset-specific information
@@ -776,10 +776,10 @@ static void lcd_implementation_status_screen()
 
 	lcd.setCursor(8, 0);
 	#if HOTENDS > 1
-	lcd.print((CHAR)LCD_STR_THERMOMETER[0]);
+	lcd.print((char)LCD_STR_THERMOMETER[0]);
 	_draw_heater_status(1, -1, blink);
 	#else
-	lcd.print((CHAR)LCD_BEDTEMP_CHAR);
+	lcd.print((char)LCD_BEDTEMP_CHAR);
 	_draw_heater_status(-1, -1, blink);
 	#endif
 
@@ -972,7 +972,7 @@ static void lcd_implementation_status_screen()
 	#endif
 }
 
-#if ENABLED(ULTIPANEL)
+#if ENABLED(USE_CONTROLLER)
 
 #if ENABLED(ADVANCED_PAUSE_FEATURE)
 
@@ -1695,6 +1695,6 @@ void add_edges_to_custom_char(custom_char *const custom, coordinate *const ul, c
 
 #endif // AUTO_BED_LEVELING_UBL
 
-#endif // ULTIPANEL
+#endif // USE_CONTROLLER
 
 #endif // ULTRALCD_IMPL_HD44780_H

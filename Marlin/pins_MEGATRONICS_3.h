@@ -174,6 +174,9 @@
 //
 // M3/M4/M5 - Spindle/Laser Control
 //
+
+#if 0
+
 #if DISABLED(REPRAPWORLD_KEYPAD)       // try to use the keypad connector first
 	#define SPINDLE_LASER_PWM_PIN    44  // MUST BE HARDWARE PWM
 	#define SPINDLE_LASER_ENABLE_PIN 43  // Pin should have a pullup!
@@ -193,4 +196,6 @@
 	#define SPINDLE_LASER_PWM_PIN     4  // MUST BE HARDWARE PWM
 	#define SPINDLE_LASER_ENABLE_PIN 17  // Pin should have a pullup!
 	#define SPINDLE_DIR_PIN           5
+#endif
+
 #endif

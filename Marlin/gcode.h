@@ -324,7 +324,7 @@ public:
 		input_temp_units = units;
 	}
 
-	#if ENABLED(ULTIPANEL) && DISABLED(DISABLE_M503)
+	#if ENABLED(USE_CONTROLLER) && DISABLED(DISABLE_M503)
 
 	FORCE_INLINE static char temp_units_code()
 	{
@@ -348,7 +348,7 @@ public:
 		}
 	}
 
-	#endif // ULTIPANEL && !DISABLE_M503
+	#endif // USE_CONTROLLER && !DISABLE_M503
 
 	inline static float value_celsius()
 	{

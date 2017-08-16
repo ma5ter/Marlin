@@ -124,17 +124,11 @@
 #endif
 
 #if 1
-	#define REPRAPWORLD_KEYPAD
-	#define REPRAPWORLD_KEYPAD_MOVE_STEP 10.0
 	#define ADC_KEYPAD
-	//#define   ADC_KEYPAD_DEBUG 1
 	#define ADC_KEYPAD_PIN 1
-	#define ADC_KEY_NUM 5
-	#define ULTIPANEL
+	#define ADC_KEY_NUM 8 // for details why '8' but not '5' see the '_stADCKeypadTable_' in the 'ultralcd.cpp'
+	//#define   ADC_KEYPAD_DEBUG 1
 	#define LCDMODEL_ZONESTAR
-	// this helps to implement ADC_KEYPAD menus
-	#define ENCODER_STEPS_PER_MENU_ITEM 1
-	// #define REVERSE_MENU_DIRECTION
 #endif
 
 #define DISPLAY_START_PAGE      1
@@ -1330,14 +1324,14 @@
 //
 
 //
+// It was ULTIPANEL some time ago, but now code is refactored so it becames a single switch to enable LCD menu
+//
+#define USE_CONTROLLER
+
+//
 // ULTIMAKER Controller.
 //
 //#define ULTIMAKERCONTROLLER
-
-//
-// ULTIPANEL as seen on Thingiverse.
-//
-//#define ULTIPANEL
 
 //
 // PanelOne from T3P3 (via RAMPS 1.4 AUX2/AUX3)
@@ -1406,8 +1400,8 @@
 // REPRAPWORLD_KEYPAD_MOVE_STEP sets how much should the robot move when a key
 // is pressed, a value of 10.0 means 10mm per click.
 //
-#define REPRAPWORLD_KEYPAD
-#define REPRAPWORLD_KEYPAD_MOVE_STEP 5.0
+// #define REPRAPWORLD_KEYPAD
+// #define REPRAPWORLD_KEYPAD_MOVE_STEP 5.0
 
 //
 // RigidBot Panel V1.0
