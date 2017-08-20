@@ -1434,7 +1434,10 @@ void Temperature::thermal_runaway_protection(Temperature::TRState *state, millis
 			}
 			*state = TRRunaway;
 		case TRRunaway:
-			_temp_error(heater_id, PSTR(MSG_T_THERMAL_RUNAWAY), PSTR(MSG_THERMAL_RUNAWAY));
+			if (heater_id == 0)
+				_temp_error(heater_id, PSTR(MSG_T_THERMAL_RUNAWAY_BED), PSTR(MSG_THERMAL_RUNAWAY_BED));
+			else
+				_temp_error(heater_id, PSTR(MSG_T_THERMAL_RUNAWAY), PSTR(MSG_THERMAL_RUNAWAY));
 	}
 }
 

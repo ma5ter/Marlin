@@ -656,8 +656,11 @@
 #ifndef MSG_ERR_REDUNDANT_TEMP
 	#define MSG_ERR_REDUNDANT_TEMP              _UxGT("Err: REDUNDANT TEMP")
 #endif
+#ifndef MSG_THERMAL_RUNAWAY_BED
+	#define MSG_THERMAL_RUNAWAY_BED             _UxGT("THERMRUNAWAY BED")
+#endif
 #ifndef MSG_THERMAL_RUNAWAY
-	#define MSG_THERMAL_RUNAWAY                 _UxGT("THERMAL RUNAWAY")
+	#define MSG_THERMAL_RUNAWAY                 _UxGT("THERM RUNAWAY HE")
 #endif
 #ifndef MSG_ERR_MAXTEMP
 	#define MSG_ERR_MAXTEMP                     _UxGT("Err: MAXTEMP")
