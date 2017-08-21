@@ -124,10 +124,10 @@
 #endif
 
 #if 1
-	#define ADC_KEYPAD // also set ENCODER_PULSES_PER_STEP = 1 && ENCODER_STEPS_PER_MENU_ITEM = 1
+	#define ADC_KEYPAD
 	#define ADC_KEYPAD_PIN 1
 	#define ADC_KEY_NUM 8 // for details why '8' but not '5' see the '_stADCKeypadTable_' in the 'ultralcd.cpp'
-	// #define ADC_KEYPAD_DEBUG 1 // allow serial output of ADC values
+	//#define   ADC_KEYPAD_DEBUG 1
 	#define LCDMODEL_ZONESTAR
 #endif
 
@@ -136,9 +136,9 @@
 #define EPR_MAGIC_ID            86///D=0;S=2;Y=4;M=6;G=8
 
 // Define this to set a custom name for your generic Mendel,
-#define CUSTOM_MACHINE_NAME     "P802MA"
-//#define MACHINE_FW_VERSION    "P802MA_V1.9"
-//#define   MARLIN_VERSION      "Based on Marlin"
+#define CUSTOM_MACHINE_NAME     "P802MA_8"
+#define MACHINE_FW_VERSION      "P802MA_V1.9"
+//#define   MARLIN_VERSION          "Base on MarlinV1.0.2-2"
 #define COMPANY_NAME            "Tronxy-P802MA"
 
 #define FIX_MOUNTED_PROBE
@@ -534,14 +534,14 @@
     Override with M92
                                         X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
 */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 100, 100, 400, 90 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 500 }
 
 /**
     Default Max Feed Rate (mm/s)
     Override with M203
                                         X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
 */
-#define DEFAULT_MAX_FEEDRATE          { 400, 400, 5, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 300, 300, 5, 25 }
 
 /**
     Default Max Acceleration (change/s) change = mm/s
@@ -549,7 +549,7 @@
     Override with M201
                                         X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
 */
-#define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 5000 }
+#define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 100, 10000 }
 
 /**
     Default Acceleration (change/s) change = mm/s
@@ -752,8 +752,8 @@
 
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR false
-#define INVERT_Y_DIR false
-#define INVERT_Z_DIR true
+#define INVERT_Y_DIR true
+#define INVERT_Z_DIR false
 
 // Enable this option for Toshiba stepper drivers
 //#define CONFIG_STEPPERS_TOSHIBA
@@ -781,14 +781,14 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 210
-#define Y_BED_SIZE 210
+#define X_BED_SIZE 200
+#define Y_BED_SIZE 200
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -10
+#define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS X_BED_SIZE + 10 // to allow Z-probe (which is shifted left) reach rightmost probe position 
+#define X_MAX_POS X_BED_SIZE + 20
 #define Y_MAX_POS Y_BED_SIZE
 #define Z_MAX_POS 230
 
@@ -883,7 +883,7 @@
 
 	// Set the boundaries for probing (where the probe can reach).
 	#define LEFT_PROBE_BED_POSITION 30
-	#define RIGHT_PROBE_BED_POSITION 170
+	#define RIGHT_PROBE_BED_POSITION 180
 	#define FRONT_PROBE_BED_POSITION 20
 	#define BACK_PROBE_BED_POSITION 180
 
@@ -1258,13 +1258,13 @@
 // This option overrides the default number of encoder pulses needed to
 // produce one step. Should be increased for high-resolution encoders.
 //
-#define ENCODER_PULSES_PER_STEP 1
+//#define ENCODER_PULSES_PER_STEP 1
 
 //
 // Use this option to override the number of step signals required to
 // move between next/prev menu items.
 //
-#define ENCODER_STEPS_PER_MENU_ITEM 1
+//#define ENCODER_STEPS_PER_MENU_ITEM 5
 
 /**
     Encoder Direction Options
