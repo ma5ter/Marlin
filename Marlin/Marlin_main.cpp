@@ -8688,7 +8688,7 @@ inline void gcode_M145()
 		int v;
 		if (parser.seenval('H')) {
 			v = parser.value_int();
-			lcd_preheat_hotend_temp[material] = constrain(v, EXTRUDE_MINTEMP, HEATER_0_MAXTEMP - 15);
+			lcd_preheat_hotend_temp[material] = constrain(v, EXTRUDE_MINTEMP, HEATER_0_MAXTEMP - 10);
 		}
 		if (parser.seenval('F')) {
 			v = parser.value_int();

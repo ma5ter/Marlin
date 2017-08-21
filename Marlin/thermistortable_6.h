@@ -23,6 +23,9 @@
 // 100k Epcos thermistor
 const short temptable_6[][2] PROGMEM = {
 	{    1 * OVERSAMPLENR, 350 },
+	{   13 * OVERSAMPLENR, 290 }, // top rating 250C
+	{   17 * OVERSAMPLENR, 270 }, // top rating 250C
+	{   22 * OVERSAMPLENR, 260 }, // top rating 250C
 	{   28 * OVERSAMPLENR, 250 }, // top rating 250C
 	{   31 * OVERSAMPLENR, 245 },
 	{   35 * OVERSAMPLENR, 240 },
