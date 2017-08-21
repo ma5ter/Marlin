@@ -104,11 +104,13 @@ class Temperature {
 
 public:
 
-	static float current_temperature[HOTENDS],
-		   current_temperature_bed;
-	static int16_t current_temperature_raw[HOTENDS],
-		   target_temperature[HOTENDS],
-		   current_temperature_bed_raw;
+	static float 
+		current_temperature[HOTENDS],
+		current_temperature_bed;
+	static int16_t 
+		current_temperature_raw[HOTENDS],
+		target_temperature[HOTENDS],
+		current_temperature_bed_raw;
 
 	#if HAS_HEATER_BED
 	static int16_t target_temperature_bed;
@@ -282,8 +284,8 @@ private:
 
 public:
 	#if ENABLED(ADC_KEYPAD)
-	static uint32_t current_ADCKey_raw;
-	static uint8_t ADCKey_count;
+	static uint32_t adc_key_hoarder;
+	static uint8_t adc_key_piece_count;
 	#endif
 
 	/**

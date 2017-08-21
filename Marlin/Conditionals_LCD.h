@@ -73,7 +73,7 @@
 	#define REPRAPWORLD_KEYPAD
 	#define REPRAPWORLD_KEYPAD_MOVE_STEP 10.0
 	#define ADC_KEYPAD
-	#define ADC_KEY_NUM 8
+// obsolete	#define ADC_KEY_NUM 8
 	#define USE_CONTROLLER
 	// this helps to implement ADC_KEYPAD menus
 	#define ENCODER_STEPS_PER_MENU_ITEM 1

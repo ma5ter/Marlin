@@ -102,9 +102,6 @@ uint16_t max_display_update_time = 0;
 	#define TALL_FONT_CORRECTION 0
 #endif
 
-// Function pointer to menu functions.
-typedef void (*screenFunc_t)();
-
 #if HAS_POWER_SWITCH
 	extern bool powersupply_on;
 #endif
@@ -168,12 +165,6 @@ void lcd_control_filament_menu();
 ////////////////////////////////////////////
 //////////// Menu System Actions ///////////
 ////////////////////////////////////////////
-
-#define menu_action_back(dummy) _menu_action_back()
-void _menu_action_back();
-void menu_action_submenu(screenFunc_t data);
-void menu_action_gcode(const char *pgcode);
-void menu_action_function(screenFunc_t data);
 
 #define DECLARE_MENU_EDIT_TYPE(_type, _name) \
 	bool _menu_edit_ ## _name(); \
@@ -390,16 +381,12 @@ bool encoderRateMultiplierEnabled;
 
 // Encoder Movement
 volatile int8_t encoderDiff; // Updated in lcd_buttons_update, added to encoderPosition every LCD update
-uint32_t encoderPosition;
 millis_t lastEncoderMovementMillis = 0;
 
 // Button States
 bool lcd_clicked, wait_for_unclick;
 volatile uint8_t buttons;
 millis_t next_button_update_ms;
-#if ENABLED(REPRAPWORLD_KEYPAD) || ENABLED(ADC_KEYPAD)
-	volatile uint8_t keypad_button_mask;
-#endif
 #if ENABLED(LCD_HAS_SLOW_BUTTONS)
 	volatile uint8_t slow_buttons;
 #endif
@@ -4576,60 +4563,7 @@ DEFINE_MENU_EDIT_TYPE(uint32_t, long5, ftostr5rj, 0.01);
     Handlers for Keypad input
 
 */
-#if ENABLED(ADC_KEYPAD)
-
-inline bool handle_adc_keypad()
-{
-	static uint8_t adc_steps = 0;
-	if (keypad_button_mask) {
-		if (adc_steps < 20) {
-			++adc_steps;
-		}
-		lcd_quick_feedback();
-		lcdDrawUpdate = LCDVIEW_REDRAW_NOW;
-		#if ENABLED(REVERSE_MENU_DIRECTION)
-		if (encoderDirection == -1) { // side effect which signals we are inside a menu
-			if (keypad_button_mask & EN_KEYPAD_DOWN) {
-				encoderPosition -= ENCODER_STEPS_PER_MENU_ITEM;
-			}
-			else if (keypad_button_mask & EN_KEYPAD_UP) {
-				encoderPosition += ENCODER_STEPS_PER_MENU_ITEM;
-			}
-			else if (keypad_button_mask & EN_KEYPAD_LEFT) {
-				menu_action_back();
-			}
-			else if (keypad_button_mask & EN_KEYPAD_RIGHT) {
-				lcd_return_to_status();
-			}
-		}
-		else
-		#endif
-		{
-			const int8_t step = adc_steps > 19 ? 100 : adc_steps > 10 ? 10 : 1;
-			if (keypad_button_mask & EN_KEYPAD_DOWN) {
-				encoderPosition += ENCODER_PULSES_PER_STEP * step;
-			}
-			else if (keypad_button_mask & EN_KEYPAD_UP) {
-				encoderPosition -= ENCODER_PULSES_PER_STEP * step;
-			}
-			else if (keypad_button_mask & EN_KEYPAD_RIGHT) {
-				encoderPosition = 0;
-			}
-		}
-		#if ENABLED(ADC_KEYPAD_DEBUG)
-		SERIAL_PROTOCOLLNPAIR("keypad_button_mask = ", (uint32_t)keypad_button_mask);
-		SERIAL_PROTOCOLLNPAIR("encoderPosition = ", (uint32_t)encoderPosition);
-		#endif
-		return true;
-	}
-	else if (!thermalManager.current_ADCKey_raw) {
-		adc_steps = 0;    // reset stepping acceleration
-	}
-
-	return false;
-}
-
-#elif ENABLED(REPRAPWORLD_KEYPAD)
+#if ENABLED(REPRAPWORLD_KEYPAD)
 
 void _reprapworld_keypad_move(const AxisEnum axis, const int16_t dir)
 {
@@ -5398,17 +5332,8 @@ void lcd_buttons_update()
 		buttons |= slow_buttons;
 		#endif
 
-		#if ENABLED(ADC_KEYPAD)
-
-		uint8_t newbutton_reprapworld_keypad = 0;
-		buttons = 0;
-		if (keypad_button_mask == 0) {
-			newbutton_reprapworld_keypad = get_ADC_keyValue();
-			if (WITHIN(newbutton_reprapworld_keypad, 1, 8)) {
-				keypad_button_mask = _BV(newbutton_reprapworld_keypad - 1);
-			}
-		}
-
+		#if ENABLED(CTRL_HAS_KEYS)
+		ctrl_get_keys();
 		#elif ENABLED(REPRAPWORLD_KEYPAD)
 
 		GET_BUTTON_STATES(keypad_button_mask);
@@ -5501,46 +5426,5 @@ bool ubl_lcd_clicked()
 #endif
 
 #endif // USE_CONTROLLER
-
-#if ENABLED(ADC_KEYPAD)
-
-typedef struct {
-	uint16_t ADCKeyValueMin, ADCKeyValueMax;
-	uint8_t  ADCKeyNo;
-} _stADCKeypadTable_;
-
-static const _stADCKeypadTable_ stADCKeyTable[] PROGMEM = {
-	// VALUE_MIN, VALUE_MAX, KEY
-	{ 4000, 4096, BLEN_KEYPAD_F1 + 1 },     // F1
-	{ 4000, 4096, BLEN_KEYPAD_F2 + 1 },     // F2
-	{ 4000, 4096, BLEN_KEYPAD_F3 + 1 },     // F3
-	{ 270,  470, BLEN_KEYPAD_LEFT + 1 },   // LEFT
-	{ 1950, 2150, BLEN_KEYPAD_RIGHT + 1 },  // RIGHT
-	{ 2670, 2870, BLEN_KEYPAD_UP + 1 },     // UP
-	{ 610, 810, BLEN_KEYPAD_DOWN + 1 },   // DOWN
-	{ 1200, 1400, BLEN_KEYPAD_MIDDLE + 1 }, // ENTER
-};
-
-uint8_t get_ADC_keyValue(void)
-{
-	if (thermalManager.ADCKey_count >= 16) {
-		const uint16_t currentkpADCValue = thermalManager.current_ADCKey_raw >> 2;
-		#if ENABLED(ADC_KEYPAD_DEBUG)
-		SERIAL_PROTOCOLLN(currentkpADCValue);
-		#endif
-		thermalManager.current_ADCKey_raw = 0;
-		thermalManager.ADCKey_count = 0;
-		if (currentkpADCValue < 4000)
-			for (uint8_t i = 0; i < ADC_KEY_NUM; i++) {
-				const uint16_t lo = pgm_read_word(&stADCKeyTable[i].ADCKeyValueMin),
-							   hi = pgm_read_word(&stADCKeyTable[i].ADCKeyValueMax);
-				if (WITHIN(currentkpADCValue, lo, hi)) {
-					return pgm_read_byte(&stADCKeyTable[i].ADCKeyNo);
-				}
-			}
-	}
-	return 0;
-}
-#endif
 
 #endif // LCDKIND_CHARACTER

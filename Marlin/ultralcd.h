@@ -25,6 +25,8 @@
 
 #include "Marlin.h"
 
+#include "ctrls.h"
+
 #if ENABLED(LCDKIND_CHARACTER)
 
 #define BUTTON_EXISTS(BN) (defined(BTN_## BN) && BTN_## BN >= 0)
@@ -58,10 +60,6 @@ inline void lcd_refresh()
 
 #if ENABLED(LCD_PROGRESS_BAR) && PROGRESS_MSG_EXPIRE > 0
 	void dontExpireStatus();
-#endif
-
-#if ENABLED(ADC_KEYPAD)
-	uint8_t get_ADC_keyValue();
 #endif
 
 #if ENABLED(LCDKIND_GRAPHIC)
@@ -110,43 +108,7 @@ bool lcd_blink();
 
 #if ENABLED(REPRAPWORLD_KEYPAD) || ENABLED(ADC_KEYPAD) || ENABLED(NEWPANEL) // is also USE_CONTROLLER and NEWPANEL
 
-#define KEYPAD_BTN_OFFSET 0 // bit offset into buttons for shift register values
-
-#define BLEN_KEYPAD_F3     0
-#define BLEN_KEYPAD_F2     1
-#define BLEN_KEYPAD_F1     2
-#define BLEN_KEYPAD_DOWN   3
-#define BLEN_KEYPAD_RIGHT  4
-#define BLEN_KEYPAD_MIDDLE 5
-#define BLEN_KEYPAD_UP     6
-#define BLEN_KEYPAD_LEFT   7
-
-#define EN_KEYPAD_F3      (_BV(KEYPAD_BTN_OFFSET + BLEN_KEYPAD_F3))
-#define EN_KEYPAD_F2      (_BV(KEYPAD_BTN_OFFSET + BLEN_KEYPAD_F2))
-#define EN_KEYPAD_F1      (_BV(KEYPAD_BTN_OFFSET + BLEN_KEYPAD_F1))
-#define EN_KEYPAD_DOWN    (_BV(KEYPAD_BTN_OFFSET + BLEN_KEYPAD_DOWN))
-#define EN_KEYPAD_RIGHT   (_BV(KEYPAD_BTN_OFFSET + BLEN_KEYPAD_RIGHT))
-#define EN_KEYPAD_MIDDLE  (_BV(KEYPAD_BTN_OFFSET + BLEN_KEYPAD_MIDDLE))
-#define EN_KEYPAD_UP      (_BV(KEYPAD_BTN_OFFSET + BLEN_KEYPAD_UP))
-#define EN_KEYPAD_LEFT    (_BV(KEYPAD_BTN_OFFSET + BLEN_KEYPAD_LEFT))
-
-#define KEYPAD_MOVE_Z_DOWN  (keypad_button_mask & EN_KEYPAD_F3)
-#define KEYPAD_MOVE_Z_UP    (keypad_button_mask & EN_KEYPAD_F2)
-#define KEYPAD_MOVE_MENU    (keypad_button_mask & EN_KEYPAD_F1)
-#define KEYPAD_MOVE_Y_DOWN  (keypad_button_mask & EN_KEYPAD_DOWN)
-#define KEYPAD_MOVE_X_RIGHT (keypad_button_mask & EN_KEYPAD_RIGHT)
-#define KEYPAD_MOVE_HOME    (keypad_button_mask & EN_KEYPAD_MIDDLE)
-#define KEYPAD_MOVE_Y_UP    (keypad_button_mask & EN_KEYPAD_UP)
-#define KEYPAD_MOVE_X_LEFT  (keypad_button_mask & EN_KEYPAD_LEFT)
-
-#if ENABLED(ADC_KEYPAD)
-	#define KEYPAD_MOVE_HOME  (keypad_button_mask & EN_KEYPAD_F1)
-	#define KEYPAD_EN_C                   EN_KEYPAD_MIDDLE
-#else
-	#define KEYPAD_MOVE_HOME  (keypad_button_mask & EN_KEYPAD_MIDDLE)
-	#define KEYPAD_EN_C                   EN_KEYPAD_F1
-#endif
-#define KEYPAD_MOVE_MENU    (keypad_button_mask & KEYPAD_EN_C)
+#define KEYPAD_MOVE_MENU KEYCHECK(keypad_button_mask, keypad_button_mask & KEY_MENU)
 
 #if BUTTON_EXISTS(ENC)
 	#define LCD_CLICKED ((buttons & EN_C) || REPRAPWORLD_KEYPAD_MOVE_MENU)
@@ -225,5 +187,18 @@ void lcd_reset_status();
 #if ENABLED(DELTA_CALIBRATION_MENU)
 	float lcd_probe_pt(const float &lx, const float &ly);
 #endif
+
+
+#if ENABLED(CTRL_TYPE)
+	// Function pointer to menu functions.
+	typedef void (*screenFunc_t)();
+
+	#define menu_action_back(dummy) _menu_action_back()
+	void _menu_action_back();
+	void menu_action_submenu(screenFunc_t data);
+	void menu_action_gcode(const char *pgcode);
+	void menu_action_function(screenFunc_t data);
+#endif
+
 
 #endif // ULTRALCD_H

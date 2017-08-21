@@ -213,8 +213,8 @@ bool Temperature::heater_idle_timeout_exceeded[HOTENDS] = { false };
 #endif
 
 #if ENABLED(ADC_KEYPAD)
-	uint32_t Temperature::current_ADCKey_raw = 0;
-	uint8_t Temperature::ADCKey_count = 0;
+	uint32_t Temperature::adc_key_hoarder = 0;
+	uint8_t Temperature::adc_key_piece_count = 0;
 #endif
 
 #if HAS_PID_HEATING
@@ -2211,16 +2211,16 @@ void Temperature::isr()
 			START_ADC(ADC_KEYPAD_PIN);
 			break;
 		case Measure_ADC_KEY:
-			if (ADCKey_count < 16) {
+			if (adc_key_piece_count < 16) {
 				raw_ADCKey_value = ADC;
 				if (raw_ADCKey_value > 900) {
 					//ADC Key release
-					ADCKey_count = 0;
-					current_ADCKey_raw = 0;
+					adc_key_piece_count = 0;
+					adc_key_hoarder = 0;
 				}
 				else {
-					current_ADCKey_raw += raw_ADCKey_value;
-					ADCKey_count++;
+					adc_key_hoarder += raw_ADCKey_value;
+					adc_key_piece_count++;
 				}
 			}
 			break;

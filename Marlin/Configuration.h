@@ -123,11 +123,28 @@
 	#define MOTHERBOARD BOARD_MELZI
 #endif
 
+
+// #define CTRL_TYPE CTRL_ADC_KEYPAD
+// #define CTRL_ADC_KEYPAD_DEBUG 1 // allow serial output of ADC values
+#define HAS_KEY_DOWN
+#define HAS_KEY_RIGHT
+#define HAS_KEY_MIDDLE
+#define HAS_KEY_UP
+#define HAS_KEY_LEFT
+
+// Define ADC reference values for CTRL_ADC_KEYPAD controller
+// in { key_mask , nominal_reading_value } format
+#define CTRL_ADC_KEYPAD_REF { \
+	{ KEY_LEFT, 370 }, \
+	{ KEY_RIGHT, 2050 }, \
+	{ KEY_UP, 2770 }, \
+	{ KEY_DOWN, 710 }, \
+	{ KEY_MIDDLE, 1300 }, \
+}
+
 #if 1
 	#define ADC_KEYPAD // also set ENCODER_PULSES_PER_STEP = 1 && ENCODER_STEPS_PER_MENU_ITEM = 1
 	#define ADC_KEYPAD_PIN 1
-	#define ADC_KEY_NUM 8 // for details why '8' but not '5' see the '_stADCKeypadTable_' in the 'ultralcd.cpp'
-	// #define ADC_KEYPAD_DEBUG 1 // allow serial output of ADC values
 	#define LCDMODEL_ZONESTAR
 #endif
 
