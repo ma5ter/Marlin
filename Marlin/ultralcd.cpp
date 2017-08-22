@@ -5514,11 +5514,11 @@ static const _stADCKeypadTable_ stADCKeyTable[] PROGMEM = {
 	{ 4000, 4096, BLEN_KEYPAD_F1 + 1 },     // F1
 	{ 4000, 4096, BLEN_KEYPAD_F2 + 1 },     // F2
 	{ 4000, 4096, BLEN_KEYPAD_F3 + 1 },     // F3
-	{  300,  500, BLEN_KEYPAD_LEFT + 1 },   // LEFT
-	{ 1900, 2200, BLEN_KEYPAD_RIGHT + 1 },  // RIGHT
-	{  570,  870, BLEN_KEYPAD_UP + 1 },     // UP
-	{ 2670, 2870, BLEN_KEYPAD_DOWN + 1 },   // DOWN
-	{ 1150, 1450, BLEN_KEYPAD_MIDDLE + 1 }, // ENTER
+	{ 270,  470, BLEN_KEYPAD_LEFT + 1 },   // LEFT
+	{ 1950, 2150, BLEN_KEYPAD_RIGHT + 1 },  // RIGHT
+	{ 2670, 2870, BLEN_KEYPAD_UP + 1 },     // UP
+	{ 610, 810, BLEN_KEYPAD_DOWN + 1 },   // DOWN
+	{ 1200, 1400, BLEN_KEYPAD_MIDDLE + 1 }, // ENTER
 };
 
 uint8_t get_ADC_keyValue(void)
